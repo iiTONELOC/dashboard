@@ -9,15 +9,15 @@ class Location {
         let lon = data.ll[1];
         return { lat, lon }
     }, err => {
-        console.error(err);
+        console.log(err);
         return
     }).catch(e => {
         console.log(e)
         return
     })
-    console.log(response)
     return response
     }
 }
 
-Location.user();
+
+module.exports = Location;
