@@ -42,17 +42,17 @@ html, body {
 }
 
 .current-icon {
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 50px;
+    max-height: 50px;
 }
 
-.stats {
+/* .stats {
     font-weight: 300;
     font-size: 25px;
     font-variant-caps: all-small-caps;
     overflow: hidden;
     text-shadow: 1px 1px 2px rgb(19, 19, 18);
-}
+} */
 
 .stats-stat {
     font-variant: normal;
@@ -84,13 +84,17 @@ html, body {
     font-weight: 400;
     background-color: rgba(187, 67, 247, .9);
 }
+.hourly {
+    font-size: 25px;
+    text-decoration: rgb(187, 67, 247) underline;
+}
 .float-weather{
     background-image: url("./002-cloudy-13.svg");
     background-repeat: no-repeat;
     background-position:  right top;
     background-size: 350px;
     overflow: hidden;
-    min-height: 450px;
+    max-height: 450px;
 }
 .sun{
     font-size: 15px;
@@ -98,6 +102,48 @@ html, body {
     font-family: monospace;
     
 }
+.uvi-badge {
+    font-size: 15px;
+    font-weight: 400;
+    background-color: rgba(187, 67, 247, .9);
+}
+.hourly-time{
+    font-size: 15px;
+}
+
+.hourly-div {
+    background-color: rgb(12, 11, 11);
+    border: 1px solid rgba(187, 67, 247, 0.5);
+    border-radius: 10px;
+    padding: 3px;
+}
+.hourly-list{
+    background-color: rgba(0,0,0);
+    color: rgb(172, 166, 166);
+    text-align: center;
+    padding: 3px;
+    overflow: hidden;
+}
+.border-list{
+    border-bottom: 0px solid rgba(187, 67, 247, 0.9);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.btn,.btn:active, .btn:hover{
+    background-color: black;
+    color: cornsilk;
+   
+}
+.ac-itm, .ac-itm:active{
+    background-color: black;
+    color: cornsilk;
+    border: none;
+}
+.closer:hover{
+font-size: larger;
+color: crimson;
+}
+
 /* 5 day */
 .forecast-title{
     font-size: 30px;
