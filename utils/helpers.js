@@ -20,6 +20,9 @@ module.exports = {
         if (t > 12) {
             return `${(t - 12) + " " + 'pm'}`
         } else {
+            if (t == 0) {
+                return `${("12") + " " + 'am'}`
+            }
             return `${(t) + " " + 'am'}`
         }
     },
@@ -40,10 +43,8 @@ module.exports = {
     },
 
     render_icon: data => {
-        let i =  data.map(e => { return icon = e.icon })
-        
-       let weatherIcon= `http://openweathermap.org/img/wn/${icon}.png`
-       console.log(weatherIcon)
+        let i = data.map(e => { return icon = e.icon })
+        let weatherIcon = `http://openweathermap.org/img/wn/${icon}.png`
         icon = i[0].toString()
         return weatherIcon
 
