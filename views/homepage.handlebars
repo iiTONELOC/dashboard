@@ -1,265 +1,108 @@
+<div class="col-sm-12 d-flex flex-wrap justify-content-center mt-5">
+    <!--WEATHER SECTION -->
+    <div class="card weather-div col-12 col-md-12 col-lg-5 col-xl-4 col-xxl-3 align-items-start float-weather p-3">
+        <div class="card-body text-shadow">
+            <h5 class="card-title text-center temp">{{cw.temp}}&deg; F</h5>
+            <p class="card-text text-center"><span class="badge rounded-pill condition-badge">{{condition}}</span>
+            </p>
+            <p class="card-text text-center wind">{{cw.wind_speed}} mph</span></p>
+        </div>
+        <!-- <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top current-icon" alt="..."> -->
+        <div class="card-body col-12 d-flex flex-column justify-content-end">
+            <p class="card-text text-start"><span class="badge uvi-badge">UVI: {{cw.uvi}}</span></p>
+            <h5 class="col-12 card-title city text-shadow">{{city}}, {{state}}</h5>
+            <p class="col-12 card-text date">{{format_date cw.dt}}</p>
+            <p class="col-12 card-text sun">Sunrise: {{ format_condition_time cw.sunrise}}</p>
+            <p class="col-12 card-text sun">Sunset: {{ format_condition_time cw.sunset}}</p>
+        </div>
 
-            <div class="col-sm-12 d-flex flex-wrap justify-content-center mt-5">
-                <!--WEATHER SECTION -->
-                <div
-                    class="card weather-div col-12 col-md-12 col-lg-5 col-xl-4 col-xxl-3 align-items-start float-weather p-3">
-                    <div class="card-body text-shadow">
-                        <h5 class="card-title text-center temp">91&deg; F</h5>
-                        <p class="card-text text-center"><span class="badge rounded-pill condition-badge">SUNNY</span>
-                        </p>
-                        <p class="card-text text-center">8 mph</span></p>
-                    </div>
-                    <!-- <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top current-icon" alt="..."> -->
-                    <div class="card-body col-12 d-flex flex-column justify-content-end">
-                        <p class="card-text text-start"><span class="badge uvi-badge">UVI: 3.5</span></p>
-                        <h5 class="col-12 card-title city text-shadow">Current City</h5>
-                        <p class="col-12 card-text date">Tuesday April, 20th</p>
-                        <p class="col-12 card-text sun">Sunrise:</p>
-                        <p class="col-12 card-text sun">Sunset:</p>
-                    </div>
+    </div>
+    <!-- Daily Conditions Here -->
+    <div
+        class="card weather-div col-12 col-md-12 col-lg-6 col-xl-6 col-xxl-5 d-flex flex-wrap justify-content-center p-3">
+        <div class="col-12 card-body align-self-start">
+            <h5 class="card-title city text-shadow">Current Conditions</h5>
+            <p class="card-text date">{{format_condition_time cw.dt}}</p>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-5 col-md-5 col-lg-5 ">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item conditions-list">Temperature: {{cw.temp}}&deg; F</li>
+                    <li class="list-group-item conditions-list">Feels Like: {{cw.feels_like}}&deg; F</li>
+                    <li class="list-group-item conditions-list">Humidity: {{cw.humidity}} %</li>
+                    <li class="list-group-item conditions-list">Pressure: {{cw.pressure}} mb</li>
+                </ul>
+            </div>
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item conditions-list">Dew Point: {{cw.dew_point}}&deg;</li>
+                    <li class="list-group-item conditions-list">Cloud Coverage: {{cw.clouds}}%</li>
+                    <li class="list-group-item conditions-list">Visibility: {{format_mile cw.visibility}} mi</li>
+                    <li class="list-group-item conditions-list">Chance of Rain: {{chance_rain hourly}}%</li>
+                </ul>
+            </div>
+            <div class="col-12">
+                <div class="col-12 card-body align-self-start">
+                    <h5 class="card-title hourly text-shadow mb-4">Hourly Forecast</h5>
 
-                </div>
-                <!-- Daily Conditions Here -->
-                <div
-                    class="card weather-div col-12 col-md-12 col-lg-6 col-xl-6 col-xxl-5 d-flex flex-wrap justify-content-center p-3">
-                    <div class="col-12 card-body align-self-start">
-                        <h5 class="card-title city text-shadow">Current Conditions</h5>
-                        <p class="card-text date">7:49 pm</p>
-                    </div>
-                    <div class="row d-flex justify-content-center mt-0">
-                        <div class="col-sm-5 col-md-5 col-lg-5 weather-div  d-flex justify-content-center">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item conditions-list">Temperature: 95&deg; F</li>
-                                <li class="list-group-item conditions-list">Feels Like: 95&deg; F</li>
-                                <li class="list-group-item conditions-list">Humidity: 62 %</li>
-                                <li class="list-group-item conditions-list">Pressure: 1019 mb</li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-5 col-md-5 col-lg-5 weather-div d-flex justify-content-center">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item conditions-list">Dew Point: 50&deg;</li>
-                                <li class="list-group-item conditions-list">Cloud Coverage: 20%</li>
-                                <li class="list-group-item conditions-list">Visibility: 10 m</li>
-                                <li class="list-group-item conditions-list">Chance of Rain: 20%</li>
-                            </ul>
-                        </div>
-                        <div class="col-12">
-                            <div class="col-12 card-body align-self-start">
-                                <h5 class="card-title hourly text-shadow mb-4">Hourly Forecast</h5>
+                    <div class="col-12 d-flex flex-wrap justify-content-center ">
+                        {{#each hourly as |hourly|}}
+                        {{> hourly-info hourly}}
+                        {{/each}}
+                        <!-- ACCORDION FOR EXTRA HOURS -->
+                        <div class="accordion mt-3" id="next-six-hours">
+                            <div class="accordion-item ac-itm d-flex">
+                                <h2 class="accordion-header d-flex justify-content-end" id="headingOne">
+                                    <div class="btn" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        View more
+                                    </div>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                                    data-bs-parent="#next-six-hours">
+                                    <div class="accordion-body col-12 d-flex flex-wrap align-self-center weather-div">
+                                        {{#each hourlyExtended as |extended|}}
+                                        {{> extended-info extended}}
+                                        {{/each}}
 
-                                <div class="col-12 d-flex flex-wrap justify-content-center weather-div">
-                                    <!-- PARTIAL -->
-                                    <div class="col-sm-3 col-md-2  hourly-div">
-                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                            alt="...">
-                                        <div class="col-12 ">
-                                            <ul class="list-group list-group-flush border-list">
-                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                            </ul>
+                                        <div class="col-12 mt-4">
+                                            <p class="text-end closer" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne">Close</p>
                                         </div>
                                     </div>
-
-                                    <div class="col-sm-3 col-md-2  hourly-div">
-                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                            alt="...">
-                                        <div class="col-12 ">
-                                            <ul class="list-group list-group-flush border-list">
-                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-3 col-md-2  hourly-div">
-                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                            alt="...">
-                                        <div class="col-12 ">
-                                            <ul class="list-group list-group-flush border-list">
-                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-3 col-md-2  hourly-div">
-                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                            alt="...">
-                                        <div class="col-12 ">
-                                            <ul class="list-group list-group-flush border-list">
-                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-3 col-md-2  hourly-div">
-                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                            alt="...">
-                                        <div class="col-12 ">
-                                            <ul class="list-group list-group-flush border-list">
-                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-3 col-md-2  hourly-div">
-                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                            alt="...">
-                                        <div class="col-12 ">
-                                            <ul class="list-group list-group-flush border-list">
-                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- END PARTIAL -->
-
-                                    <!-- ACCORDION FOR EXTRA HOURS -->
-                                    <div class="accordion mt-3" id="next-six-hours">
-                                        <div class="accordion-item ac-itm d-flex">
-                                            <h2 class="accordion-header d-flex justify-content-end" id="headingOne">
-                                                <div class="btn" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapseOne" aria-expanded="true"
-                                                    aria-controls="collapseOne">
-                                                    View more
-                                                </div>
-                                            </h2>
-                                            <div id="collapseOne" class="accordion-collapse collapse "
-                                                aria-labelledby="headingOne" data-bs-parent="#next-six-hours">
-                                                <div class="accordion-body col-12 d-flex flex-wrap align-self-center weather-div">
-                                                    <!-- CAN BE PARTIAL -->
-                                                    <div class="col-sm-3 col-md-2 hourly-div">
-                                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                                            alt="...">
-                                                        <div class="col-12 ">
-                                                            <ul class="list-group list-group-flush border-list">
-                                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                
-                                                    <div class="col-sm-3 col-md-2 hourly-div">
-                                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                                            alt="...">
-                                                        <div class="col-12 ">
-                                                            <ul class="list-group list-group-flush border-list">
-                                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                
-                                                    <div class="col-sm-3 col-md-2 hourly-div">
-                                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                                            alt="...">
-                                                        <div class="col-12 ">
-                                                            <ul class="list-group list-group-flush border-list">
-                                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                
-                                                    <div class="col-sm-3 col-md-2 hourly-div">
-                                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                                            alt="...">
-                                                        <div class="col-12 ">
-                                                            <ul class="list-group list-group-flush border-list">
-                                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                
-                                                    <div class="col-sm-3 col-md-2 hourly-div">
-                                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                                            alt="...">
-                                                        <div class="col-12 ">
-                                                            <ul class="list-group list-group-flush border-list">
-                                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                
-                                                    <div class="col-sm-3 col-md-2 hourly-div">
-                                                        <p class="card-text hourly-time text-center">1 pm</p>
-                                                        <p class="card-text hourly-time text-center">Sunny</p>
-                                                        <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top"
-                                                            alt="...">
-                                                        <div class="col-12 ">
-                                                            <ul class="list-group list-group-flush border-list">
-                                                                <li class="list-group-item hourly-list">Feels Like: 95&deg; F</li>
-                                                                <li class="list-group-item hourly-list ">Chance of Rain: 20%</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <!-- END PARTIAL -->
-
-                                                    <div class="col-12 mt-4">
-                                                        <p class="text-end closer" data-bs-toggle="collapse"
-                                                        data-bs-target="#collapseOne">Close</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-
-
-
                                 </div>
                             </div>
+
                         </div>
 
+
+
+
+
                     </div>
-
                 </div>
-                <!-- END WEATHER SECTION -->
             </div>
-            <!-- 5 DAY -->
-            <div class="row ms-1 d-flex justify-content-center">
-                <div
-                    class="col-12 col-md-12 col-lg-11 col-xl-10 col-xxl-8 weather-div d-flex flex-wrap justify-content-start p-3">
-                    <div class="col-12">
-                        <h1 class="forecast-title ">
-                            Five Day Forecast
-                        </h1>
-                    </div>
 
-                </div>
+        </div>
 
-                <!-- END WEATHER CONTAINER -->
-            </div>
-            <!-- END WEATHER AND NEWS CONTAINER -->
-            <div class="col-12">
-                <!-- DIV FOR NEWS -->
-            </div>
-            <!-- END DYNAMIC CONTENT -->
+    </div>
+    <!-- END WEATHER SECTION -->
+</div>
+<!-- 5 DAY -->
+<div class="row ms-1 d-flex justify-content-center">
+    <div class="col-12 col-md-12 col-lg-11 col-xl-10 col-xxl-8 weather-div d-flex flex-wrap justify-content-start p-3">
+        <div class="col-12">
+            <h1 class="forecast-title ">
+                Five Day Forecast
+            </h1>
+        </div>
+
+    </div>
+
+    <!-- END WEATHER CONTAINER -->
+</div>
+<!-- END WEATHER AND NEWS CONTAINER -->
+<div class="col-12">
+    <!-- DIV FOR NEWS -->
+</div>
+<!-- END DYNAMIC CONTENT -->

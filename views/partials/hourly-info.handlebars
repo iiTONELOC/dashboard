@@ -1,0 +1,14 @@
+<!-- PARTIAL -->
+<div class="col-sm-3 col-md-2  hourly-div background">
+    <p class="card-text hourly-time text-center">{{format_hourly_time dt}}</p>
+    <p class="card-text hourly-time text-center"></p>
+    <img src={{render_icon weather}} class="card-img-top" alt="...">
+    <div class="col-12 ">
+        <ul class="list-group list-group-flush border-list">
+            <li class="list-group-item hourly-list">Feels Like: <br>{{feels_like}}&deg; F</li>
+            <li class="list-group-item hourly-list ">Chance of Rain: <br>{{pop}}%</li>
+        </ul>
+    </div>
+</div>
+
+<!-- END PARTIAL -->
