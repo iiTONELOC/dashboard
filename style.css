@@ -1,0 +1,104 @@
+/* GLOBAL */
+
+html, body {
+    background-color: black;
+    color: cornsilk;
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 6px rgb(0, 12, 14);
+}
+
+/* NAV */
+
+.nav-link {
+    color: cornsilk;
+    font-size: 23px;
+}
+
+.nav-link:hover {
+    color: rgb(21, 211, 223);
+    border-bottom: 1px solid rgb(21, 211, 223);
+}
+.nav-border{
+    border-top: 2px solid rgb(21, 211, 223);
+    border-bottom: 1px solid rgb(19, 18, 18);
+}
+/* END NAV */
+
+/* Weather */
+
+.city {
+    font-size: 35px;
+}
+
+.date {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgb(172, 166, 166);
+    font-family: monospace;
+    text-shadow: 1px 1px 1px rgb(19, 18, 18);
+}
+
+.current-icon {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.stats {
+    font-weight: 300;
+    font-size: 25px;
+    font-variant-caps: all-small-caps;
+    overflow: hidden;
+    text-shadow: 1px 1px 2px rgb(19, 19, 18);
+}
+
+.stats-stat {
+    font-variant: normal;
+}
+
+.weather-div {
+    background-color: rgb(12, 11, 11);
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    margin: 5px;
+    /* box-shadow: rgba(23, 162, 184, 0.2) 0px 5px 24px; */
+}
+
+.conditions-list {
+    background-color: rgb(12, 11, 11);
+    color: cornsilk;
+    font-size: 20px;
+    text-shadow: 1px 1px 1px rgb(39, 38, 38);
+    line-height: 2;
+}
+
+.temp {
+    font-size: 45px;
+    font-weight: 400;
+}
+
+.condition-badge {
+    font-size: 20px;
+    font-weight: 400;
+    background-color: rgba(187, 67, 247, .9);
+}
+.float-weather{
+    background-image: url("./002-cloudy-13.svg");
+    background-repeat: no-repeat;
+    background-position:  right top;
+    background-size: 350px;
+    overflow: hidden;
+}
+.sun{
+    font-size: 15px;
+    font-weight: 300;
+    font-family: monospace;
+    
+}
+/* 5 day */
+.forecast-title{
+    font-size: 30px;
+    font-weight: 400;
+    text-decoration: rgb(21, 211, 223) underline;
+}
