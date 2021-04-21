@@ -42,7 +42,7 @@
             <div class="col-sm-12 d-flex flex-wrap justify-content-center mt-5">
                 <!--WEATHER SECTION -->
                 <div
-                    class="card weather-div col-12 col-md-8 col-lg-8 col-xl-4 col-xxl-3 align-items-start float-weather p-3">
+                    class="card weather-div col-12 col-md-12 col-lg-5 col-xl-4 col-xxl-3 align-items-start float-weather p-3">
                     <div class="card-body text-shadow">
                         <h5 class="card-title text-center temp">91&deg; F</h5>
                         <p class="card-text"><span class="badge rounded-pill condition-badge">SUNNY</span></p>
@@ -57,23 +57,39 @@
 
                 </div>
                 <!-- Daily Conditions Here -->
-                <div class="card weather-div col-12 col-md-10 col-lg-10 col-xl-6 col-xxl-5 align-items-center p-3">
-                    <div class="card-body align-self-start">
+                <div class="card weather-div col-12 col-md-12 col-lg-6 col-xl-6 col-xxl-5 d-flex flex-wrap justify-content-center p-3">
+                    <div class="col-12 card-body align-self-start">
                         <h5 class="card-title city text-shadow">Current Conditions</h5>
                         <p class="card-text date">7:49 pm</p>
                     </div>
-                    <ul class="col-6 list-group list-group-flush align-items-start weather-div mb-3">
-                        <li class="list-group-item conditions-list">Feels Like: 95&deg; F</li>
-                        <li class="list-group-item conditions-list">Cloud Coverage: 20%</li>
-                        <li class="list-group-item conditions-list">Humidity: 62 %</li>
-                        <li class="list-group-item conditions-list">Wind: NE 5 MPH</li>
-                        <li class="list-group-item conditions-list">Chance of Rain: 10% next hour</li>
-                        <li class="list-group-item conditions-list">UV Index: 3.2</li>
-                    </ul>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-sm-5 col-md-5 col-lg-5 weather-div  d-flex justify-content-center">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item conditions-list">Feels Like: 95&deg; F</li>
+                                <li class="list-group-item conditions-list">Cloud Coverage: 20%</li>
+                                <li class="list-group-item conditions-list">Humidity: 62 %</li>
+                                <li class="list-group-item conditions-list">Wind: NE 5 MPH</li>
+                                <li class="list-group-item conditions-list">Chance of Rain: 10% next hour</li>
+                                <li class="list-group-item conditions-list">UV Index: 3.2</li>
+                            </ul>
+                        </div>
+    
+                        <div class="col-sm-5 col-md-5 col-lg-5 weather-div d-flex justify-content-center">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item conditions-list">Feels Like: 95&deg; F</li>
+                                <li class="list-group-item conditions-list">Cloud Coverage: 20%</li>
+                                <li class="list-group-item conditions-list">Humidity: 62 %</li>
+                                <li class="list-group-item conditions-list">Wind: NE 5 MPH</li>
+                                <li class="list-group-item conditions-list">Chance of Rain: 10% next hour</li>
+                                <li class="list-group-item conditions-list">UV Index: 3.2</li>
+                            </ul>
+                        </div>
+                    </div>
+                   
                 </div>
                 <!-- 5 DAY -->
-                <div class="col-12 col-xl-10 weather-div d-flex flex-wrap justify-content-start p-3">
-                    <div class="col-4">
+                <div class="col-12 col-lg-10 col-xl-10 col-xxl-8 weather-div d-flex flex-wrap justify-content-start p-3">
+                    <div class="col-12">
                         <h1 class="forecast-title ">
                             Five Day Forecast
                         </h1>

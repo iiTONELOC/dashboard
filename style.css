@@ -3,6 +3,7 @@
 html, body {
     background-color: black;
     color: cornsilk;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .text-shadow {
@@ -68,9 +69,9 @@ html, body {
 .conditions-list {
     background-color: rgb(12, 11, 11);
     color: cornsilk;
-    font-size: 20px;
+    font-size: 15px;
     text-shadow: 1px 1px 1px rgb(39, 38, 38);
-    line-height: 2;
+    line-height: 1.25;
 }
 
 .temp {
@@ -89,6 +90,7 @@ html, body {
     background-position:  right top;
     background-size: 350px;
     overflow: hidden;
+    min-height: 450px;
 }
 .sun{
     font-size: 15px;
