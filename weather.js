@@ -64,13 +64,8 @@ class Weather {
                     .then((data) => {
                         // REMOVE LOG
                         // console.log(data)
-                        return data
-                    }).catch(e => {
-                        console.log(e)
+                        return data 
                     })
-            }).catch(e => {
-                console.log(e)
-                return
             })
             return response
         } else {
@@ -115,7 +110,7 @@ class Weather {
                 let lat = zipData.coord.lat;
                 Weather.oneCall(lat, lon).then(res => {
                     // REMOVE LOG
-                    console.log(res)
+                    // console.log(res)
                     return(res)
                 })
             }).catch(e => {
@@ -143,7 +138,7 @@ class Weather {
                 let lon = cityData.coord.lon;
                 let lat = cityData.coord.lat;
                 Weather.oneCall(lat, lon).then(res => {
-                    console.log(res)
+                    // console.log(res)
                     return res
                 })
             }).catch(e => {
@@ -152,5 +147,5 @@ class Weather {
     }
 }
 
-Weather.dailyCity("london",false,"uk")
+
 module.exports = Weather

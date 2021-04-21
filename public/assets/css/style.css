@@ -89,7 +89,7 @@ html, body {
     text-decoration: rgb(187, 67, 247) underline;
 }
 .float-weather{
-    background-image: url("./002-cloudy-13.svg");
+    background-image: url("../images/002-cloudy-13.svg");
     background-repeat: no-repeat;
     background-position:  right top;
     background-size: 350px;
