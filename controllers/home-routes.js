@@ -16,9 +16,9 @@ router.get('/', (req, res) => {
     async function oneCall() {
         const geoip = require('geoip-lite');
         let client = requestIp.getClientIp(req)
-        console.log(client)
+        
         let ip = geoip.lookup(client)
-
+        console.log(ip)
         city = ip.city;
         state = ip.state;
         let units = "imperial";
