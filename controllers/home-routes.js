@@ -9,7 +9,7 @@ const requestIp = require('request-ip');
 
 router.get('/', (req, res) => {
 
-    // Get Current Weather off IP 
+    // Get Current Weather off IP-
     async function oneCall() {
         const geoip = require('geoip-lite');
         let client = requestIp.getClientIp(req)
@@ -36,7 +36,6 @@ router.get('/', (req, res) => {
     }
 
     oneCall().then(data => {
-        console.log(data)
         /* SEPARATE AND PACKAGE CURRENT, MINUTELY, HOURLY, DAILY FORECAST */
         const cw = data.data.current
         const mw = data.data.minutely
@@ -61,13 +60,10 @@ router.get('/', (req, res) => {
         // console.log(dw.weather)
         res.render('homepage', {
             cw, mw, dw, city, state, condition, hourly, hourlyExtended
-        }).catch(e => {
-            console.log("++++++++++++++++++\nERROR ON HOMEROUTE", e)
-            return
         })
         return
     }).catch(e => {
-        console.log(e)
+        if (e) { console.log(e) }
         return
     })
 
