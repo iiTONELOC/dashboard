@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
             },
         })
 
-        const data = d.json()
+        const data = await d.json()
 
         return { data, city, state }
 
