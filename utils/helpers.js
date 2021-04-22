@@ -1,8 +1,8 @@
 module.exports = {
     // FORMATS UNIX TIME
     format_date: date => {
-        return `${new Date(date * 1000).getMonth() + 1}/${new Date(date * 1000).getDate()}/${new Date(
-            date * 1000
+        return `${new Date((date * 1000)-14400000).getMonth() + 1}/${new Date((date * 1000)-14400000).getDate()}/${new Date(
+            (date * 1000)-14400000
         ).getFullYear()}`;
     },
 
@@ -22,7 +22,7 @@ module.exports = {
     },
 
     format_hourly_time: date => {
-        t = new Date(date * 1000).getHours();
+        t = new Date((date * 1000)-14400000).getHours();
         if (t > 12) {
             return `${(t - 12) + " " + 'pm'}`
         } else {
@@ -34,8 +34,8 @@ module.exports = {
     },
 
     format_condition_time: date => {
-        m = new Date(date * 1000).getMinutes()
-        h = new Date(date * 1000).getHours()
+        m = new Date((date * 1000)-14400000).getMinutes()
+        h = new Date((date * 1000)-14400000).getHours()
         if (h > 12) {
             if (m <= 9) {
                 if (h == 0) {
@@ -74,13 +74,13 @@ module.exports = {
     },
 
     format_day: date => {
-        let newDate = `${new Date(date * 1000).getMonth() + 1}/${new Date(date * 1000).getDate()}/${new Date(
-            date * 1000
+        let newDate = `${new Date((date * 1000)-14400000).getMonth() + 1}/${new Date((date * 1000)-14400000).getDate()}/${new Date(
+            (date * 1000)-14400000
         ).getFullYear()}`;
 
         dayWk = (new Date(newDate).toLocaleString('en-us', { weekday: 'long' }));
         month = (new Date(newDate).toLocaleString('en-us', { month: 'short' }));
-        d = new Date(date * 1000).getDate()
+        d = new Date((date * 1000)-14400000).getDate()
 
         let day
         switch (d) {
