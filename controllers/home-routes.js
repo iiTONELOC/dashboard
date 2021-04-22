@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
         state = ip.state;
         let units = "imperial";
         let lang = "en";
-        let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${ip.lat}&lon=${ip.lon}&appid=${process.env.WEATHER}&units=${units}&lang=${lang}`
+        let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${ip.ll[0]}&lon=${ip.lon[1]}&appid=${process.env.WEATHER}&units=${units}&lang=${lang}`
         let data = await fetch(url, {
             method: "GET",
             headers: {
