@@ -3,6 +3,9 @@ const routes = require('./controllers/');
 const path = require('path');
 const exphbs = require('express-handlebars');
 require('dotenv').config();
+const requestIp = require('request-ip');
+
+
 
 
 
@@ -27,7 +30,7 @@ const PORT = process.env.PORT || 3001;
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-
+app.set('trust proxy', true);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -35,6 +38,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // turn on routes
 app.use(routes);
+
+// try middleware for ip
+app.use(requestIp.mw())
+app.use(function(req, res) {
+    const ip = req.clientIp;
+    res.end(ip);
+});
 
 // turn on connection to db and server
 // sequelize.sync({ force: false }).then(() => {

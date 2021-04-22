@@ -19,6 +19,7 @@
     "ext-ip": "^0.3.9",
     "geoip-lite": "^1.4.2",
     "handlebars": "^4.7.7",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "request-ip": "^2.1.3"
   }
 }

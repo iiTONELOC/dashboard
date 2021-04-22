@@ -2,17 +2,21 @@ const router = require('express').Router();
 const Weather = require("../weather")
 const Location = require("../location")
 const fetch = require('node-fetch');
+const geoip = require('geoip-lite');
 require('dotenv').config();
+const requestIp = require('request-ip');
+// inside middleware handler
 
+router.get('/', ( req, res) => {
 
-
-router.get('/', (req, res) => {
     let city;
     let state;
-    // Get Current Weather off IP
+   
+    // Get Current Weather off IP 
     async function oneCall() {
-        let response = await Location.user().then(data => {
-
+        let client = requestIp.getClientIp(req)
+        console.log(client)
+        let response = await  geoip.lookup(client).then(data => {
             return data
         }).then(async data => {
             city = data.city;
