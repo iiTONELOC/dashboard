@@ -9,16 +9,12 @@ const requestIp = require('request-ip');
 
 router.get('/', (req, res) => {
 
-    let city;
-    let state;
-
     // Get Current Weather off IP 
     async function oneCall() {
         const geoip = require('geoip-lite');
         let client = requestIp.getClientIp(req)
 
         let ip = geoip.lookup(client)
-        console.log(ip)
         let city = ip.city;
         let state = ip.region;
         let lat = ip.ll[0];
@@ -26,14 +22,14 @@ router.get('/', (req, res) => {
         let units = "imperial";
         let lang = "en";
         let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER}&units=${units}&lang=${lang}`
-        let data = await fetch(url, {
+        let d = await fetch(url, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             },
         })
 
-
+        const data = d.json()
 
         return { data, city, state }
 
