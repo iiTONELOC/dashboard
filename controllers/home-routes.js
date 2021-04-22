@@ -36,32 +36,37 @@ router.get('/', (req, res) => {
     }
 
     oneCall().then(data => {
-        console.log(data)
-        // /* SEPARATE AND PACKAGE CURRENT, MINUTELY, HOURLY, DAILY FORECAST */
-        // const cw = data.data.current
-        // const mw = data.data.minutely
-        // const hw = data.data.hourly
-        // const dw = data.data.daily
-        // const city = data.city
-        // const state = data.state
-        // const condition = ({ ...cw.weather }[0].description).toUpperCase()
-        // // storage for hourly, we dont need all 48 hours right now
-        // // map the array, don't alter original data
-        // let data1 = hw.map(e=>{return e});
-        // // empty holders
-        // let hourly =[];
-        // let hourlyExtended = [];
-        // // grab the first 12 hours and add it to hourly array
-        // for (let index = 0; index < data1.length-36; index++) {
-        //     const element = data1[index];
-        //     hourly.push(element)
-        // }
-        // // Splice hourly array into 6 hour groups
-        // hourlyExtended=hourly.splice(6)
-        // // console.log(dw.weather)
+        /* SEPARATE AND PACKAGE CURRENT, MINUTELY, HOURLY, DAILY FORECAST */
+        const cw = data.data.current
+        const mw = data.data.minutely
+        const hw = data.data.hourly
+        const dw = data.data.daily
+        const city = data.city
+        const state = data.state
+        const condition = ({ ...cw.weather }[0].description).toUpperCase()
+        // storage for hourly, we dont need all 48 hours right now
+        // map the array, don't alter original data
+        let data1 = hw.map(e=>{return e});
+        // empty holders
+        let hourly =[];
+        let hourlyExtended = [];
+        // grab the first 12 hours and add it to hourly array
+        for (let index = 0; index < data1.length-36; index++) {
+            const element = data1[index];
+            hourly.push(element)
+        }
+        // Splice hourly array into 6 hour groups
+        hourlyExtended=hourly.splice(6)
+        // console.log(dw.weather)
         res.render('homepage', {
-            // cw, mw, dw, city, state, condition, hourly, hourlyExtended
-        });
+            cw, mw, dw, city, state, condition, hourly, hourlyExtended
+        }).catch(e=>{
+            console.log("++++++++++++++++++\nERROR ON HOMEROUTE",e)
+            return
+        })
+        return
+    }).catch(e=>{
+        console.log(e)
         return
     })
 
