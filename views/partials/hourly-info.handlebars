@@ -1,10 +1,14 @@
 <!-- PARTIAL -->
-<div class="col-sm-3 col-md-2  hourly-div background">
+<div class="col-sm-2 col-md-2  hourly-div background d-flex flex-wrap justify-content-center over">
     <p class="card-text hourly-time text-center border-bottom border-dark">{{format_hourly_time dt}}</p>
-    <p class="card-text hourly-time text-center"><span class="badge rounded-pill condition-badge-current">{{render_cond
-                    weather}}</span></p>
-    <p class="card-text hourly-time text-center"></p>
-    <img src={{render_icon weather}} class="card-img-top" alt="...">
+    <div class="col-12 d-flex flex-wrap justify-content-center p-2">
+        <p class="card-text hourly-time text-center"><span
+                class="badge rounded-pill condition-badge-current text-center fit">{{render_cond
+                weather}}</span></p>
+    </div>
+    <div class="col-12 d-flex flex-wrap justify-content-center">
+    <img src={{render_icon weather}} class="card-img-top med-icon cur-icon" alt="...">
+    </div>
     <div class="col-12 ">
         <ul class="list-group list-group-flush border-list">
             <li class="list-group-item hourly-list">Feels Like: <br>{{feels_like}}&deg; F</li>

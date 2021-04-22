@@ -1,11 +1,11 @@
 <div class="col-sm-12 d-flex flex-wrap justify-content-center mt-5">
     <!--WEATHER SECTION -->
     <div class="card weather-div col-12 col-md-12 col-lg-5 col-xl-4 col-xxl-3 align-items-start float-weather p-3" style="background-image: url({{render_icon cw.weather}});">
-        <div class="card-body text-shadow">
+        <div class="card-body text-shadow d flex flex-wrap">
             <h5 class="card-title text-center temp">{{cw.temp}}&deg; F</h5>
-            <p class="card-text text-center"><span class="badge rounded-pill condition-badge">{{condition}}</span>
+            <p class="card-text text-center "><span class="badge rounded-pill condition-badge">{{condition}}</span>
             </p>
-            <p class="card-text text-center wind">{{cw.wind_speed}} mph</span></p>
+            <p class="card-text text-center wind align-self-center ms-4">{{cw.wind_speed}} mph</span></p>
         </div>
         
         <div class="card-body col-12 d-flex flex-column justify-content-end">
@@ -41,11 +41,11 @@
                     <li class="list-group-item conditions-list">Chance of Rain: {{chance_rain hourly}}%</li>
                 </ul>
             </div>
-            <div class="col-12">
-                <div class="col-12 card-body align-self-start">
+            <div class="col-12 d-flex flex-wrap justify content-center">
+                <div class="col-12 d-flex flex-wrap justify-content-center card-body align-self-start">
                     <h5 class="card-title hourly text-shadow mb-4">Hourly Forecast</h5>
 
-                    <div class="col-12 d-flex flex-wrap justify-content-center ">
+                    <div class="col-sm-12 col-md-12 d-flex flex-wrap justify-content-center ">
                         {{#each hourly as |hourly|}}
                         {{> hourly-info hourly}}
                         {{/each}}

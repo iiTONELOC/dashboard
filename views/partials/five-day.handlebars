@@ -5,7 +5,7 @@
 
     </div>
     <div class="col-12 d-flex flex-wrap justify-content-center">
-        <div class="col-2 d-flex flex-wrap justify-content-center">
+        <div class="col-12 d-flex flex-wrap justify-content-center mb-3">
             <img src={{render_icon weather}} class="card-img-top forecast-icon align-self-center" alt="...">
         </div>
         <div class="col-12 d-flex flex-wrap justify-content-center mb-3">
@@ -16,28 +16,28 @@
 
     <div class="col-12 d-flex flex-wrap justify-content-between">
         <div class="col-sm-5 col-md-5 col-lg-5 d-flex flex-wrap justify-content-center">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush black">
 
                 <div class="dropdown d-flex flex-wrap justify-content-center ">
                     <button class="dropdown-toggle-split drop-btn conditions-list" id="dLabel{{@index}}" type="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Temperature: {{temp.day}}&deg; F
                     </button>
-                    <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split drop-btn"
+                    <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split drop-btn "
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu bg-dark" aria-labelledby="dLabel{{@index}}">
-                        <li class="list-group-item conditions-list">Morning Temp: {{temp.morn}}&deg; F</li>
-                        <li class="list-group-item conditions-list">Daily High: {{temp.max}}&deg; F</li>
-                        <li class="list-group-item conditions-list">Daily Low: {{temp.min}}&deg; F</li>
-                        <li class="list-group-item conditions-list">Evening: {{temp.eve}}&deg; F</li>
-                        <li class="list-group-item conditions-list">Night: {{temp.night}}&deg; F</li>
-                        <li class="list-group-item conditions-list">Daily Average: {{temp_avg temp}}&deg; F</li>
+                    <ul class="dropdown-menu black border border-info" aria-labelledby="dLabel{{@index}}">
+                        <li class="list-group-item conditions-list black">Morning Temp: {{temp.morn}}&deg; F</li>
+                        <li class="list-group-item conditions-list black">Daily High: {{temp.max}}&deg; F</li>
+                        <li class="list-group-item conditions-list black">Daily Low: {{temp.min}}&deg; F</li>
+                        <li class="list-group-item conditions-list black">Evening: {{temp.eve}}&deg; F</li>
+                        <li class="list-group-item conditions-list black">Night: {{temp.night}}&deg; F</li>
+                        <li class="list-group-item conditions-list black">Daily Average: {{temp_avg temp}}&deg; F</li>
                     </ul>
                 </div>
 
-                <div class="dropdown d-flex flex-wrap justify-content-center">
+                <div class="dropdown d-flex flex-wrap justify-content-center black">
                     <button class="dropdown-toggle-split drop-btn conditions-list" id="dLabel2{{@index}}" type="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Feels Like: {{feels_like.day}}&deg; F
@@ -46,7 +46,7 @@
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="visually-hidden">Toggle Dropdown</span>
                     </button>
-                    <ul class="dropdown-menu bg-dark" aria-labelledby="dLabel2{{@index}}">
+                    <ul class="dropdown-menu black border border-info" aria-labelledby="dLabel2{{@index}}">
                         <li class="list-group-item conditions-list">Morning: {{feels_like.morn}}&deg; F</li>
                         <li class="list-group-item conditions-list">Daily High: {{feels_like.day}}&deg; F</li>
                         <li class="list-group-item conditions-list">Evening: {{feels_like.eve}}&deg; F</li>
@@ -54,21 +54,21 @@
                         <li class="list-group-item conditions-list">Daily Average: {{temp_avg feels_like}}&deg; F</li>
                     </ul>
                 </div>
-                <li class="list-group-item conditions-list">Sunrise: {{ format_condition_time sunrise}}</li>
-                <li class="list-group-item conditions-list">Sunset: {{ format_condition_time sunset}}</li>
-                <li class="list-group-item conditions-list">Moonrise: {{ format_condition_time moonrise}}</li>
-                <li class="list-group-item conditions-list">Moonset: {{ format_condition_time moonset}}</li>
+                <li class="list-group-item conditions-list black">Sunrise: {{ format_condition_time sunrise}}</li>
+                <li class="list-group-item conditions-list black">Sunset: {{ format_condition_time sunset}}</li>
+                <li class="list-group-item conditions-list black">Moonrise: {{ format_condition_time moonrise}}</li>
+                <li class="list-group-item conditions-list black">Moonset: {{ format_condition_time moonset}}</li>
             </ul>
         </div>
 
 
-        <div class="col-sm-5 col-md-5 col-lg-5 d-flex flex-wrap justify-content-center">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item conditions-list">Dew Point: {{dew_point}}&deg;</li>
-                <li class="list-group-item conditions-list">Humidity: {{humidity}} %</li>
-                <li class="list-group-item conditions-list">Pressure: {{pressure}} mb</li>
-                <li class="list-group-item conditions-list">Cloud Coverage: {{clouds}}%</li>
-                <li class="list-group-item conditions-list">Chance of Rain: {{chance_rain1 pop}}%</li>
+        <div class="col-sm-5 col-md-5 col-lg-5 d-flex flex-wrap justify-content-center black">
+            <ul class="list-group list-group-flush black">
+                <li class="list-group-item conditions-list black">Dew Point: {{dew_point}}&deg;</li>
+                <li class="list-group-item conditions-list black">Humidity: {{humidity}} %</li>
+                <li class="list-group-item conditions-list black">Pressure: {{pressure}} mb</li>
+                <li class="list-group-item conditions-list black">Cloud Coverage: {{clouds}}%</li>
+                <li class="list-group-item conditions-list black">Chance of Rain: {{chance_rain1 pop}}%</li>
             </ul>
         </div>
 

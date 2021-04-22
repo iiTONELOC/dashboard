@@ -107,7 +107,8 @@ html, body {
 
 .wind {
     font-size: 25px;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.3);
+    width: fit-content;
 }
 
 .uvi-badge {
@@ -164,6 +165,33 @@ html, body {
     background-color: rgb(0, 0, 0);
 }
 
+.med-icon {
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.ext-med-icon {
+    height: 60px;
+    object-fit: contain;
+}
+
+.fit {
+    max-width: 95%;
+    overflow: hidden;
+}
+
+.fit-2 {
+    max-width: 80%;
+}
+
+.over {
+    overflow: hidden;
+}
+.cur-icon {
+    height: 75px;
+    object-fit: contain;
+}
+
 /* 5 day */
 
 .forecast-title {
@@ -177,8 +205,8 @@ html, body {
 }
 
 .forecast-icon {
-    max-height: 200px;
-    object-fit: cover;
+    height: 250px;
+    object-fit: fill;
 }
 
 .fcast-hr {
@@ -201,7 +229,8 @@ html, body {
 .condition1-badge {
     font-size: 15px;
     font-weight: 300;
-    background-color: rgba(38, 30, 42, 0.8);
+    background-color: rgba(187, 67, 247, 0.8);
+    text-shadow: 1px 1px black;
 }
 
 .condition-badge-current {
@@ -209,6 +238,7 @@ html, body {
     font-weight: 300;
     background-color: rgba(187, 67, 247, 0.5);
     text-shadow: 1px 1px 1px black;
+    overflow: hidden;
 }
 
 .green {
@@ -230,4 +260,8 @@ html, body {
 
 .indigo {
     background-color: rgb(141, 0, 146);
+}
+
+.black{
+    background-color: black;
 }

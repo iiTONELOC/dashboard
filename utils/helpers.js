@@ -52,19 +52,20 @@ module.exports = {
             }
 
         } else {
-            if (h == 0) {
-                return `${(12) + ":" + m + " " + 'am'}`
+            if(m<=9){
+                if (h == 0) {
+                    return `${(12) + ":" + "0"+ m + " " + 'am'}`
+                }
+                return `${(h) + ":" + "0"+ m + " " + 'am'}`
             }
             return `${(h) + ":" + m + " " + 'am'}`
         }
     },
 
     render_icon: data => {
-        console.log(data)
         let i = data.map(e => { return  e.icon })
-        let icon = i[0]
+        let icon = i[0].toString()
         let weatherIcon;
-        console.log(i)
         switch (icon) {
             case "01d":
                 weatherIcon = Icon.o1d();
@@ -92,6 +93,9 @@ module.exports = {
                 break;
             default:
                 weatherIcon = `http://openweathermap.org/img/wn/${icon}.png`
+                if(icon === "03d"| icon === "03n" |icon === "04d"| icon === "04n"){
+                    return weatherIcon = Icon.o3dn()
+                }
                 break;
         }
         return weatherIcon
