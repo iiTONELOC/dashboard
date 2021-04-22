@@ -38,6 +38,7 @@ router.get('/', (req, res) => {
     }
 
     oneCall().then(data => {
+        console.log(data)
         /* SEPARATE AND PACKAGE CURRENT, MINUTELY, HOURLY, DAILY FORECAST */
         const cw = data.data.current
         const mw = data.data.minutely
