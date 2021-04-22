@@ -21,8 +21,8 @@ router.get('/', (req, res) => {
         console.log(ip)
         let city = ip.city;
         let state = ip.region;
-        let lat = data.ll[0];
-        let lon = data.ll[1];
+        let lat = ip.ll[0];
+        let lon = ip.ll[1];
         let units = "imperial";
         let lang = "en";
         let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER}&units=${units}&lang=${lang}`
