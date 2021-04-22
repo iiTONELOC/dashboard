@@ -2,41 +2,39 @@ const router = require('express').Router();
 const Weather = require("../weather")
 const Location = require("../location")
 const fetch = require('node-fetch');
-const geoip = require('geoip-lite');
+
 require('dotenv').config();
 const requestIp = require('request-ip');
 // inside middleware handler
 
-router.get('/', ( req, res) => {
+router.get('/', (req, res) => {
 
     let city;
     let state;
-   
+
     // Get Current Weather off IP 
     async function oneCall() {
+        const geoip = require('geoip-lite');
         let client = requestIp.getClientIp(req)
         console.log(client)
-        let response = await  geoip.lookup(client).then(data => {
-            return data
-        }).then(async data => {
-            city = data.city;
-            state = data.state;
-            let units = "imperial";
-            let lang = "en";
-            let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.lat}&lon=${data.lon}&appid=${process.env.WEATHER}&units=${units}&lang=${lang}`
-            let weatherData = await fetch(url, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-            })
-            return weatherData
+        let ip = geoip.lookup(client)
+
+        city = ip.city;
+        state = ip.state;
+        let units = "imperial";
+        let lang = "en";
+        let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${ip.lat}&lon=${ip.lon}&appid=${process.env.WEATHER}&units=${units}&lang=${lang}`
+        let data = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
         })
-            .then(res => res.json())
-            .then((data) => {
-                return { data, city, state }
-            })
-        return response
+
+
+
+        return { data, city, state }
+
     }
 
     oneCall().then(data => {
@@ -50,26 +48,26 @@ router.get('/', ( req, res) => {
         const condition = ({ ...cw.weather }[0].description).toUpperCase()
         // storage for hourly, we dont need all 48 hours right now
         // map the array, don't alter original data
-        let data1 = hw.map(e=>{return e});
+        let data1 = hw.map(e => { return e });
         // empty holders
-        let hourly =[];
+        let hourly = [];
         let hourlyExtended = [];
         // grab the first 12 hours and add it to hourly array
-        for (let index = 0; index < data1.length-36; index++) {
+        for (let index = 0; index < data1.length - 36; index++) {
             const element = data1[index];
             hourly.push(element)
         }
         // Splice hourly array into 6 hour groups
-        hourlyExtended=hourly.splice(6)
+        hourlyExtended = hourly.splice(6)
         // console.log(dw.weather)
         res.render('homepage', {
             cw, mw, dw, city, state, condition, hourly, hourlyExtended
-        }).catch(e=>{
-            console.log("++++++++++++++++++\nERROR ON HOMEROUTE",e)
+        }).catch(e => {
+            console.log("++++++++++++++++++\nERROR ON HOMEROUTE", e)
             return
         })
         return
-    }).catch(e=>{
+    }).catch(e => {
         console.log(e)
         return
     })
