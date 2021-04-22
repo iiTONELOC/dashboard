@@ -21,10 +21,12 @@ html, body {
     color: rgb(21, 211, 223);
     border-bottom: 1px solid rgb(21, 211, 223);
 }
-.nav-border{
+
+.nav-border {
     border-top: 2px solid rgb(21, 211, 223);
     border-bottom: 1px solid rgb(19, 18, 18);
 }
+
 /* END NAV */
 
 /* Weather */
@@ -37,7 +39,6 @@ html, body {
     font-size: 15px;
     font-weight: 300;
     color: rgb(172, 166, 166);
-    font-family: monospace;
     text-shadow: 1px 1px 1px rgb(19, 18, 18);
 }
 
@@ -70,7 +71,7 @@ html, body {
     background-color: rgb(12, 11, 11);
     color: cornsilk;
     font-size: 15px;
-    text-shadow: 1px 1px 1px rgb(39, 38, 38);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
     line-height: 1.25;
 }
 
@@ -84,35 +85,38 @@ html, body {
     font-weight: 400;
     background-color: rgba(187, 67, 247, .9);
 }
+
 .hourly {
     font-size: 25px;
-    text-decoration:  rgba(156, 152, 158, 0.2) underline;
+    text-decoration: rgba(156, 152, 158, 0.2) underline;
 }
-.float-weather{
-    background-image: url("../images/002-cloudy-13.svg");
+
+.float-weather {
+    background-image: url("");
     background-repeat: no-repeat;
-    background-position:  right top;
+    background-position: right top;
     background-size: 350px;
     overflow: hidden;
     max-height: 450px;
 }
-.sun{
+
+.sun {
     font-size: 15px;
     font-weight: 300;
-    font-family: monospace;
-    
 }
-.wind{
+
+.wind {
     font-size: 25px;
     background-color: rgba(0, 0, 0, 0.8);
-    
 }
+
 .uvi-badge {
     font-size: 15px;
     font-weight: 400;
     background-color: rgba(187, 67, 247, .9);
 }
-.hourly-time{
+
+.hourly-time {
     font-size: 15px;
 }
 
@@ -122,43 +126,108 @@ html, body {
     border-radius: 10px;
     padding: 3px;
 }
-.hourly-list{
-    background-color: rgba(0,0,0);
+
+.hourly-list {
+    background-color: rgba(0, 0, 0);
     color: cornsilk;
     font-size: smaller;
     text-align: center;
     padding: 5px;
     overflow: hidden;
 }
-.border-list{
+
+.border-list {
     border-bottom: 0px solid rgba(187, 67, 247, 0.9);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
-.btn,.btn:active, .btn:hover{
+
+.btn, .btn:active, .btn:hover {
     background-color: black;
     color: cornsilk;
     text-shadow: 1px 1px 1px rgb(19, 18, 18);
     border: 1px solid rgba(187, 67, 247, 0.9);
-   
 }
-.ac-itm, .ac-itm:active{
+
+.ac-itm, .ac-itm:active {
     background-color: rgb(22, 22, 22);
     color: cornsilk;
     border: none;
 }
-.closer:hover{
-font-size: larger;
-color: crimson;
+
+.closer:hover {
+    font-size: larger;
+    color: crimson;
 }
 
-.background{
+.background {
     background-color: rgb(0, 0, 0);
 }
 
 /* 5 day */
-.forecast-title{
+
+.forecast-title {
     font-size: 30px;
     font-weight: 400;
     text-decoration: rgb(21, 211, 223) underline;
+}
+
+.five-day {
+    height: fit-content;
+}
+
+.forecast-icon {
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.fcast-hr {
+    font-size: 16px;
+    font-weight: 200;
+    border-radius: 5px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.drop-btn {
+    background-color: rgba(0, 0, 0, 1);
+    border: none;
+}
+
+.drop-btn:hover, .drop-btn:active, .drop-btn:current {
+    background-color: rgba(0, 0, 0, 1);
+    border: none;
+}
+
+.condition1-badge {
+    font-size: 15px;
+    font-weight: 300;
+    background-color: rgba(38, 30, 42, 0.8);
+}
+
+.condition-badge-current {
+    font-size: 12px;
+    font-weight: 300;
+    background-color: rgba(187, 67, 247, 0.5);
+    text-shadow: 1px 1px 1px black;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+    color: black;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.red {
+    background-color: red;
+}
+
+.indigo {
+    background-color: rgb(141, 0, 146);
 }

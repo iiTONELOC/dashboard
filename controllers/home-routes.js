@@ -58,7 +58,7 @@ router.get('/', (req, res) => {
         }
         // Splice hourly array into 6 hour groups
         hourlyExtended=hourly.splice(6)
-        // console.log(hourly)
+        // console.log(dw.weather)
         res.render('homepage', {
             cw, mw, dw, city, state, condition, hourly, hourlyExtended
         });

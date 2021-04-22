@@ -1,6 +1,8 @@
 <!-- PARTIAL -->
 <div class="col-sm-3 col-md-2  hourly-div background">
-    <p class="card-text hourly-time text-center">{{format_hourly_time dt}}</p>
+    <p class="card-text hourly-time text-center border-bottom border-dark">{{format_hourly_time dt}}</p>
+    <p class="card-text hourly-time text-center"><span class="badge rounded-pill condition-badge-current">{{render_cond
+                    weather}}</span></p>
     <p class="card-text hourly-time text-center"></p>
     <img src={{render_icon weather}} class="card-img-top" alt="...">
     <div class="col-12 ">

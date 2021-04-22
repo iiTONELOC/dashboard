@@ -1,17 +1,17 @@
 <div class="col-sm-12 d-flex flex-wrap justify-content-center mt-5">
     <!--WEATHER SECTION -->
-    <div class="card weather-div col-12 col-md-12 col-lg-5 col-xl-4 col-xxl-3 align-items-start float-weather p-3">
+    <div class="card weather-div col-12 col-md-12 col-lg-5 col-xl-4 col-xxl-3 align-items-start float-weather p-3" style="background-image: url({{render_icon cw.weather}});">
         <div class="card-body text-shadow">
             <h5 class="card-title text-center temp">{{cw.temp}}&deg; F</h5>
             <p class="card-text text-center"><span class="badge rounded-pill condition-badge">{{condition}}</span>
             </p>
             <p class="card-text text-center wind">{{cw.wind_speed}} mph</span></p>
         </div>
-        <!-- <img src="http://openweathermap.org/img/wn/01d.png" class="card-img-top current-icon" alt="..."> -->
+        
         <div class="card-body col-12 d-flex flex-column justify-content-end">
-            <p class="card-text text-start"><span class="badge uvi-badge">UVI: {{cw.uvi}}</span></p>
+            <p class="card-text text-start"><span class="badge uvi-badge {{{format_uv cw.uvi}}}">UVI: {{cw.uvi}}</span></p>
             <h5 class="col-12 card-title city text-shadow">{{city}}, {{state}}</h5>
-            <p class="col-12 card-text date">{{format_date cw.dt}}</p>
+            <p class="col-12 card-text date">{{{format_day cw.dt}}}</p>
             <p class="col-12 card-text sun">Sunrise: {{ format_condition_time cw.sunrise}}</p>
             <p class="col-12 card-text sun">Sunset: {{ format_condition_time cw.sunset}}</p>
         </div>
@@ -90,13 +90,15 @@
 </div>
 <!-- 5 DAY -->
 <div class="row ms-1 d-flex justify-content-center">
-    <div class="col-12 col-md-12 col-lg-11 col-xl-10 col-xxl-8 weather-div d-flex flex-wrap justify-content-start p-3">
+    <div class="col-12 col-md-12 col-lg-11 col-xl-10 col-xxl-8 weather-div d-flex flex-wrap justify-content-center p-3">
         <div class="col-12">
             <h1 class="forecast-title ">
-                Five Day Forecast
+                Weekly Forecast
             </h1>
         </div>
-
+        {{#each dw as |daily|}}
+        {{> five-day daily}}
+        {{/each}}
     </div>
 
     <!-- END WEATHER CONTAINER -->
