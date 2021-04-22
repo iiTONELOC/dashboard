@@ -16,14 +16,16 @@ router.get('/', (req, res) => {
     async function oneCall() {
         const geoip = require('geoip-lite');
         let client = requestIp.getClientIp(req)
-        
+
         let ip = geoip.lookup(client)
         console.log(ip)
-        city = ip.city;
-        state = ip.state;
+        let city = ip.city;
+        let state = ip.region;
+        let lat = data.ll[0];
+        let lon = data.ll[1];
         let units = "imperial";
         let lang = "en";
-        let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${ip.ll[0]}&lon=${ip.lon[1]}&appid=${process.env.WEATHER}&units=${units}&lang=${lang}`
+        let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER}&units=${units}&lang=${lang}`
         let data = await fetch(url, {
             method: "GET",
             headers: {
