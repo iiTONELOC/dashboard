@@ -201,7 +201,7 @@ html, body {
 }
 
 .five-day {
-    height: fit-content;
+    height: auto;
 }
 
 .forecast-icon {
@@ -264,4 +264,7 @@ html, body {
 
 .black{
     background-color: black;
+}
+.progress-bg{
+    background-color: rgb(12, 11, 11);
 }

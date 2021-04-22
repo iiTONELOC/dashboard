@@ -52,18 +52,21 @@ module.exports = {
             }
 
         } else {
-            if(m<=9){
+            if (m <= 9) {
                 if (h == 0) {
-                    return `${(12) + ":" + "0"+ m + " " + 'am'}`
+                    return `${(12) + ":" + "0" + m + " " + 'am'}`
                 }
-                return `${(h) + ":" + "0"+ m + " " + 'am'}`
+                return `${(h) + ":" + "0" + m + " " + 'am'}`
+            }
+            if (h == 0) {
+                return `${(12) + ":" + m + " " + 'am'}`
             }
             return `${(h) + ":" + m + " " + 'am'}`
         }
     },
 
     render_icon: data => {
-        let i = data.map(e => { return  e.icon })
+        let i = data.map(e => { return e.icon })
         let icon = i[0].toString()
         let weatherIcon;
         switch (icon) {
@@ -79,7 +82,7 @@ module.exports = {
             case "02n":
                 weatherIcon = Icon.o2n();
                 break;
-            case "03n" | "03d" | "04d" | "04n" |"'03d'":
+            case "03n" | "03d" | "04d" | "04n" | "'03d'":
                 weatherIcon = Icon.o3dn();
                 break;
             case "09n" | "09d" | "10n":
@@ -93,7 +96,7 @@ module.exports = {
                 break;
             default:
                 weatherIcon = `http://openweathermap.org/img/wn/${icon}.png`
-                if(icon === "03d"| icon === "03n" |icon === "04d"| icon === "04n"){
+                if (icon === "03d" | icon === "03n" | icon === "04d" | icon === "04n") {
                     return weatherIcon = Icon.o3dn()
                 }
                 break;
@@ -122,15 +125,15 @@ module.exports = {
         let day
         switch (d) {
             case 1 | 21 | 31:
-                day = `${d}<sup>st </sup>`;
+                day = `${d}<sup>st</sup>`;
                 break;
             case 2 | 22:
-                day = `${d}<sup>nd </sup>`;
+                day = `${d}<sup>nd</sup>`;
                 break;
             case 3 | 23:
-                day = `${d}<sup>rd </sup>`;
+                day = `${d}<sup>rd</sup>`;
                 break;
-            default: day = `${d} <sup>th</sup>`
+            default: day = `${d}<sup>th</sup>`
                 break;
         }
         let formatted_date = `${dayWk},  ${month} ${day}`
@@ -155,7 +158,64 @@ module.exports = {
             uv = "indigo"
         }
         return uv
-    }
+    },
 
+    progress_bar: data => {
+        if (data < 1) {
+            data = (data * 100)
+        }
+        let stat;
+        if (data < 20) {
+            stat = "green"
+        }
+        if (data > 20 & data < 40) {
+            stat = "yellow"
+        }
+        if (data > 40 & data < 60) {
+            stat = "orange"
+        }
+        if (data > 80 & data < 100) {
+            stat = "indigo"
+        }
+        return stat
+    },
+
+    format_percent: data => {
+        let current = data.map(e => { return chance = e.pop });
+        if (current[0] < 1) {
+            return current[0] * 100
+        }
+        return current[0]
+    },
+
+    percent: data => {
+        let current = data
+        if (current < 1) {
+            return current * 100
+        }
+        return current
+    },
+
+    progress_rain: data => {
+        let current = data.map(e => { return chance = e.pop });
+        let rain = current[0]
+        if (rain < 1) {
+            rain = (rain * 100)
+        }
+        let stat;
+        if (rain < 20) {
+            stat = "green"
+        }
+        if (rain > 20 & rain < 40) {
+            stat = "yellow"
+        }
+        if (rain > 40 & rain < 60) {
+            stat = "orange"
+        }
+        if (rain > 80 & rain < 100) {
+            stat = "indigo"
+        }
+        return stat
+    },
 
 }
