@@ -13,12 +13,23 @@ router.get('/', (req, res) => {
     async function oneCall() {
         const geoip = require('geoip-lite');
         let client = requestIp.getClientIp(req)
-
         let ip = geoip.lookup(client)
-        let city = ip.city;
-        let state = ip.region;
-        let lat = ip.ll[0];
-        let lon = ip.ll[1];
+
+        // BELOW CODE WORKS LOCALLY AND ON HEROKU
+        if (client === '::1') {
+            client = await Location.user()
+            lat = client.lat;
+            lon = client.lon;
+            city = client.city;
+            state = client.state
+        } else {
+            city = ip.city;
+            state = ip.region;
+            lat = ip.ll[0];
+            lon = ip.ll[1];
+        }
+
+
         let units = "imperial";
         let lang = "en";
         let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.WEATHER}&units=${units}&lang=${lang}`
@@ -28,7 +39,6 @@ router.get('/', (req, res) => {
                 "Content-Type": "application/json"
             },
         })
-
         const data = await d.json()
 
         return { data, city, state }
@@ -57,7 +67,6 @@ router.get('/', (req, res) => {
         }
         // Splice hourly array into 6 hour groups
         hourlyExtended = hourly.splice(6)
-        // console.log(dw.weather)
         res.render('homepage', {
             cw, mw, dw, city, state, condition, hourly, hourlyExtended
         })

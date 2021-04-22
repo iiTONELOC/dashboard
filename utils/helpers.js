@@ -61,6 +61,7 @@ module.exports = {
         let i = data.map(e => { return icon = e.icon })
         let weatherIcon = `http://openweathermap.org/img/wn/${icon}.png`
         icon = i[0].toString()
+        console.log(data)
         return weatherIcon
     },
 
