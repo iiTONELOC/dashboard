@@ -1,8 +1,10 @@
+const Icon = require("./Icons")
+
 module.exports = {
     // FORMATS UNIX TIME
     format_date: date => {
-        return `${new Date((date * 1000)-14400000).getMonth() + 1}/${new Date((date * 1000)-14400000).getDate()}/${new Date(
-            (date * 1000)-14400000
+        return `${new Date((date * 1000) - 14400000).getMonth() + 1}/${new Date((date * 1000) - 14400000).getDate()}/${new Date(
+            (date * 1000) - 14400000
         ).getFullYear()}`;
     },
 
@@ -22,7 +24,7 @@ module.exports = {
     },
 
     format_hourly_time: date => {
-        t = new Date((date * 1000)-14400000).getHours();
+        t = new Date((date * 1000) - 14400000).getHours();
         if (t > 12) {
             return `${(t - 12) + " " + 'pm'}`
         } else {
@@ -34,8 +36,8 @@ module.exports = {
     },
 
     format_condition_time: date => {
-        m = new Date((date * 1000)-14400000).getMinutes()
-        h = new Date((date * 1000)-14400000).getHours()
+        m = new Date((date * 1000) - 14400000).getMinutes()
+        h = new Date((date * 1000) - 14400000).getHours()
         if (h > 12) {
             if (m <= 9) {
                 if (h == 0) {
@@ -58,10 +60,40 @@ module.exports = {
     },
 
     render_icon: data => {
-        let i = data.map(e => { return icon = e.icon })
-        let weatherIcon = `http://openweathermap.org/img/wn/${icon}.png`
-        icon = i[0].toString()
         console.log(data)
+        let i = data.map(e => { return  e.icon })
+        let icon = i[0]
+        let weatherIcon;
+        console.log(i)
+        switch (icon) {
+            case "01d":
+                weatherIcon = Icon.o1d();
+                break;
+            case "01n":
+                weatherIcon = Icon.o1n();
+                break;
+            case "02d":
+                weatherIcon = Icon.o2d();
+                break;
+            case "02n":
+                weatherIcon = Icon.o2n();
+                break;
+            case "03n" | "03d" | "04d" | "04n" |"'03d'":
+                weatherIcon = Icon.o3dn();
+                break;
+            case "09n" | "09d" | "10n":
+                weatherIcon = Icon.o9dn();
+                break;
+            case "10d":
+                weatherIcon = Icon.o10d();
+                break;
+            case "11d" | "11n":
+                weatherIcon = Icon.o11dn();
+                break;
+            default:
+                weatherIcon = `http://openweathermap.org/img/wn/${icon}.png`
+                break;
+        }
         return weatherIcon
     },
 
@@ -75,13 +107,13 @@ module.exports = {
     },
 
     format_day: date => {
-        let newDate = `${new Date((date * 1000)-14400000).getMonth() + 1}/${new Date((date * 1000)-14400000).getDate()}/${new Date(
-            (date * 1000)-14400000
+        let newDate = `${new Date((date * 1000) - 14400000).getMonth() + 1}/${new Date((date * 1000) - 14400000).getDate()}/${new Date(
+            (date * 1000) - 14400000
         ).getFullYear()}`;
 
         dayWk = (new Date(newDate).toLocaleString('en-us', { weekday: 'long' }));
         month = (new Date(newDate).toLocaleString('en-us', { month: 'short' }));
-        d = new Date((date * 1000)-14400000).getDate()
+        d = new Date((date * 1000) - 14400000).getDate()
 
         let day
         switch (d) {
@@ -104,19 +136,19 @@ module.exports = {
     format_uv: data => {
         let uv;
         if (data < 3) {
-            uv ="green"
+            uv = "green"
         }
         if (data > 2 & data < 6) {
-            uv ="yellow"
+            uv = "yellow"
         }
         if (data > 5 & data < 8) {
-            uv ="orange"
+            uv = "orange"
         }
         if (data > 7 & data < 11) {
-            uv ="red"
+            uv = "red"
         }
         if (data >= 11) {
-            uv ="indigo"
+            uv = "indigo"
         }
         return uv
     }
