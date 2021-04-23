@@ -142,16 +142,16 @@ module.exports = {
 
     format_uv: data => {
         let uv;
-        if (data < 3) {
+        if (data <= 2) {
             uv = "green"
         }
-        if (data > 2 & data < 6) {
+        if (data >= 3 & data <= 5) {
             uv = "yellow"
         }
-        if (data > 5 & data < 8) {
+        if (data >= 6 & data <= 7) {
             uv = "orange"
         }
-        if (data > 7 & data < 11) {
+        if (data >=8 & data <= 10) {
             uv = "red"
         }
         if (data >= 11) {
@@ -165,19 +165,19 @@ module.exports = {
             data = (data * 100)
         }
         let stat;
-        if (data <= 20) {
+        if (data <= 19.9999999999) {
             stat = "blue"
         }
-        if (data > 20 & data < 35) {
+        if (data >= 20 & data <= 35.99999999999999) {
             stat = "green"
         }
-        if (data > 35 & data < 55) {
+        if (data >= 36 & data <= 55.999999999999999) {
             stat = "orange"
         }
-        if (data > 55 & data < 79) {
+        if (data >= 56 & data <= 79.9999999999999999) {
             stat = "red"
         }
-        if (data > 80) {
+        if (data >= 80) {
             stat = "indigo"
         }
         return stat
@@ -187,34 +187,34 @@ module.exports = {
             data = (data * 100)
         }
         let stat;
-        if (data <= 19) {
+        if (data <= 19.999999999999) {
             stat = "indigo"
         }
-        if (data >= 20 & data <= 29) {
+        if (data >= 19.1 & data <= 29.999999999) {
             stat = "bg-primary"
         }
-        if (data >= 30 & data <= 39) {
+        if (data >= 30 & data <= 39.99999999999) {
             stat = "blue"
         }
-        if (data >= 40 & data <= 49) {
+        if (data >= 40 & data <= 49.9999999999999) {
             stat = "bg-success"
         }
-        if (data >= 50 & data <= 59) {
+        if (data >= 50 & data <= 59.999999999999) {
             stat = "green"
         }
-        if (data >= 60 & data <= 69) {
+        if (data >= 60 & data <= 69.999999999999) {
             stat = "yellow"
         }
-        if (data >= 60 & data <= 69) {
+        if (data >= 60 & data <= 69.999999999999) {
             stat = "orange"
         }
-        if (data >= 70 & data <= 79) {
+        if (data >= 70 & data <= 79.999999999999) {
             stat = "red"
         }
-        if (data >= 80 & data <= 89) {
+        if (data >= 80 & data <= 89.999999999999) {
             stat = "red1"
         }
-        if (data >= 90 & data <= 99) {
+        if (data >= 90 & data <= 99.999999999999) {
             stat = "red2"
         }
         if (data >= 100) {
@@ -249,16 +249,16 @@ module.exports = {
         if (rain <= 20) {
             stat = "blue"
         }
-        if (rain > 20 & rain < 35) {
+        if (rain >= 21 & rain <= 35) {
             stat = "green"
         }
-        if (rain > 35 & rain < 55) {
+        if (rain >= 36 & rain <= 55) {
             stat = "orange"
         }
-        if (rain > 55 & rain < 79) {
+        if (rain >= 56 & rain <= 79) {
             stat = "red"
         }
-        if (rain > 80 ) {
+        if (rain >= 80 ) {
             stat = "indigo"
         }
         return stat

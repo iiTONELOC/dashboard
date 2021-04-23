@@ -45,17 +45,16 @@
                     </span>
 
                 </p>
-                <h5 class="col-12 card-title city text-shadow">{{city}}, {{state}}</h5>
+                <h5 id="lat"class="col-12 card-title city text-shadow" data-lat="{{lat}}"data-lon="{{lon}}">{{city}}, {{state}}</h5>
                 <p class="col-12 card-text date">{{{format_day cw.dt}}}</p>
                 <span><img src="assets/images/icons/icons/sun-rise-set/090-sunset-1.svg" class="iMG ms-2">
-                    <p class="col-6 card-text sun">Sunrise: {{ format_condition_time cw.sunrise}}</p>
+                    <p id="sunR" class="col-6 card-text sun">Sunrise: {{ format_condition_time cw.sunrise}}</p>
                 </span>
                 <span><img src="assets/images/icons/icons/sun-rise-set/sunSet.png" class="iMG mt-1 ms-2">
-                    <p class="col-6 card-text sun">Sunset: {{ format_condition_time cw.sunset}}</p>
+                    <p id="sunS" class="col-6 card-text sun">Sunset: {{ format_condition_time cw.sunset}}</p>
                 </span>
-
-
         </div>
+        
 
     </div>
     <!-- Daily Conditions Here -->

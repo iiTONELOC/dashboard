@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
         const geoip = require('geoip-lite');
         let client = requestIp.getClientIp(req)
         let ip = geoip.lookup(client)
-
+        let lat;
+        let lon;
         // BELOW CODE WORKS LOCALLY AND ON HEROKU
         if (client === '::1') {
             client = await Location.user()
@@ -40,8 +41,9 @@ router.get('/', (req, res) => {
             },
         })
         const data = await d.json()
-
-        return { data, city, state }
+      
+        // console.log(lat)
+        return { data, city, state, lat,lon }
 
     }
 
@@ -53,6 +55,9 @@ router.get('/', (req, res) => {
         const dw = data.data.daily
         const city = data.city
         const state = data.state
+        const lat = data.lat
+        const lon = data.lon;
+        // console.log(lat)
         const condition = ({ ...cw.weather }[0].description).toUpperCase()
         // storage for hourly, we dont need all 48 hours right now
         // map the array, don't alter original data
@@ -68,7 +73,7 @@ router.get('/', (req, res) => {
         // Splice hourly array into 6 hour groups
         hourlyExtended = hourly.splice(6)
         res.render('homepage', {
-            cw, mw, dw, city, state, condition, hourly, hourlyExtended
+            cw, mw, dw, city, state, condition, hourly, hourlyExtended, lat, lon
         })
         return
     }).catch(e => {
