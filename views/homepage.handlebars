@@ -14,8 +14,14 @@
             </p>
             <h5 class="col-12 card-title city text-shadow">{{city}}, {{state}}</h5>
             <p class="col-12 card-text date">{{{format_day cw.dt}}}</p>
-            <p class="col-12 card-text sun">Sunrise: {{ format_condition_time cw.sunrise}}</p>
-            <p class="col-12 card-text sun">Sunset: {{ format_condition_time cw.sunset}}</p>
+            <span><img src="assets/images/icons/icons/sun-rise-set/090-sunset-1.svg" class="iMG ms-2">
+                <p class="col-6 card-text sun">Sunrise: {{ format_condition_time cw.sunrise}}</p>
+            </span>
+            <span><img src="assets/images/icons/icons/sun-rise-set/sunSet.png" class="iMG ms-2">
+                <p class="col-6 card-text sun">Sunset: {{ format_condition_time cw.sunset}}</p>
+            </span>
+
+
         </div>
 
     </div>
@@ -29,7 +35,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-sm-5 col-md-5 col-lg-5 ">
                 <ul class="list-group list-group-flush">
-                    <span><img src="assets/images/icons/icons/therms/038-temperature.svg" class="iMG-s">
+                    <span><img src="assets/images/icons/icons/therms/038-temperature.svg" class="iMG-s ms-2">
                         <li class="list-group-item conditions-list">
                             Temp<br>
                             {{cw.temp}}&deg; F</li>
@@ -38,24 +44,23 @@
                         <li class="list-group-item conditions-list"> Feels Like<br>
                             {{cw.feels_like}}&deg; F</li>
                     </span>
-                    <span><img src="assets/images/icons/icons/therms/024-thermometer-low.svg" class="iMG-s">
+                    <span><img src="assets/images/icons/icons/therms/024-thermometer-low.svg" class="iMG-s ms-2">
                         <li class="list-group-item conditions-list"> Dew
                             Point:<br> {{cw.dew_point}}&deg;</li>
                     </span>
-                    <span><img src="assets/images/icons/icons/power.svg" class="iMG-s">
+                    <span><img src="assets/images/icons/icons/meter.png" class="iMG ms-2">
                         <li class="list-group-item conditions-list">Pressure<br> {{cw.pressure}} mb</li>
                     </span>
 
-
-
-
-                    <li class="list-group-item conditions-list">Visibility {{format_mile cw.visibility}} mi</li>
                 </ul>
             </div>
             <div class="col-sm-5 col-md-5 col-lg-5">
                 <ul class="list-group list-group-flush">
+                    <span><img src="assets/images/icons/icons/viz.png" class="iMG ms-2">
+                        <li class="list-group-item conditions-list">Visibility <br>{{format_mile cw.visibility}} mi</li>
+                    </span>
 
-                    <span><img src="assets/images/icons/icons/051-cloud-3.svg" class="iMG">
+                    <span><img src="assets/images/icons/icons/051-cloud-3.svg" class="iMG ms-2">
                         <li class="list-group-item conditions-list"> Cloud Coverage <br>{{cw.clouds}}%<br>
                             <div class="progress progress-bg">
                                 <div class="progress-bar progress-bar-striped {{progress_bar cw.clouds}} "
@@ -64,7 +69,7 @@
                             </div>
                         </li>
                     </span>
-                    <span><img src="assets/images/icons/icons/095-rain-drops-lg.svg" class="iMG">
+                    <span><img src="assets/images/icons/icons/095-rain-drops-lg.svg" class="iMG ms-2">
                         <li class="list-group-item conditions-list">Humidity<br>{{cw.humidity}}%<br>
                             <div class="progress progress-bg">
                                 <div class="progress-bar progress-bar-striped {{progress_bar cw.humidity}} "
@@ -73,7 +78,7 @@
                             </div>
                         </li>
                     </span>
-                    <span><img src="assets/images/icons/icons/056-3-raindrops.svg" class="iMG">
+                    <span><img src="assets/images/icons/icons/098-umbrella.svg" class="iMG-s ms-2">
                         <li class="list-group-item conditions-list">Chance of Rain<br>{{chance_rain hourly}}%<br>
                             <div class="progress progress-bg">
                                 <div class="progress-bar progress-bar-striped {{progress_rain hourly}} "

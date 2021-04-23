@@ -17,85 +17,108 @@
     <div class="col-12 d-flex flex-wrap justify-content-between">
         <div class="col-sm-5 col-md-5 col-lg-5 ">
             <ul class="list-group list-group-flush black d-flex flex-wrap">
-                <li class="list-group-item conditions-list black">
-                    <div class="dropdown d-flex flex-wrap justify-content-start ">
-                        <button class="dropdown-toggle-split drop-btn conditions-list" id="dLabel{{@index}}"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span ><img
-                                src="assets/images/icons/icons/therms/038-temperature.svg" class="iMG"></span> Temperature: {{temp.day}}&deg; F
-                        </button>
-                        <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split drop-btn "
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu black border border-info" aria-labelledby="dLabel{{@index}}">
-                            <li class="list-group-item conditions-list black">Morning Temp: {{temp.morn}}&deg; F</li>
-                            <li class="list-group-item conditions-list black">Daily High: {{temp.max}}&deg; F</li>
-                            <li class="list-group-item conditions-list black">Daily Low: {{temp.min}}&deg; F</li>
-                            <li class="list-group-item conditions-list black">Evening: {{temp.eve}}&deg; F</li>
-                            <li class="list-group-item conditions-list black">Night: {{temp.night}}&deg; F</li>
-                            <li class="list-group-item conditions-list black">Daily Average: {{temp_avg temp}}&deg; F
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="list-group-item conditions-list black">
-                    <div class="dropdown d-flex flex-wrap justify-content-start black">
-                        <button class="dropdown-toggle-split drop-btn conditions-list" id="dLabel2{{@index}}"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span ><img
-                                src="assets/images/icons/icons/therms/E7BF9407.png" class="iMG"></span> Feels Like: {{feels_like.day}}&deg; F
-                        </button>
-                        <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split drop-btn"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="visually-hidden">Toggle Dropdown</span>
-                        </button>
-                        <ul class="dropdown-menu black border border-info" aria-labelledby="dLabel2{{@index}}">
-                            <li class="list-group-item conditions-list">Morning: {{feels_like.morn}}&deg; F</li>
-                            <li class="list-group-item conditions-list">Daily High: {{feels_like.day}}&deg; F</li>
-                            <li class="list-group-item conditions-list">Evening: {{feels_like.eve}}&deg; F</li>
-                            <li class="list-group-item conditions-list">Night: {{feels_like.night}}&deg; F</li>
-                            <li class="list-group-item conditions-list">Daily Average: {{temp_avg feels_like}}&deg; F
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-
-
-                <li class="list-group-item conditions-list black">Sunrise: {{ format_condition_time sunrise}}</li>
-                <li class="list-group-item conditions-list black">Sunset: {{ format_condition_time sunset}}</li>
-                <li class="list-group-item conditions-list black">Moonrise: {{ format_condition_time moonrise}}</li>
-                <li class="list-group-item conditions-list black">Moonset: {{ format_condition_time moonset}}</li>
+                <span><img src="assets/images/icons/icons/therms/038-temperature.svg" class="iMG-s ms-4">
+                    <li class="list-group-item conditions-list black">
+                        <div class="dropdown d-flex flex-wrap justify-content-start ">
+                            <button class="dropdown-toggle-split drop-btn conditions-list" id="dLabel{{@index}}"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Temperature: {{temp.day}}&deg; F
+                            </button>
+                            <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split drop-btn "
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu black border border-info" aria-labelledby="dLabel{{@index}}">
+                                <li class="list-group-item conditions-list black">Morning Temp: {{temp.morn}}&deg; F
+                                </li>
+                                <li class="list-group-item conditions-list black">Daily High: {{temp.max}}&deg; F</li>
+                                <li class="list-group-item conditions-list black">Daily Low: {{temp.min}}&deg; F</li>
+                                <li class="list-group-item conditions-list black">Evening: {{temp.eve}}&deg; F</li>
+                                <li class="list-group-item conditions-list black">Night: {{temp.night}}&deg; F</li>
+                                <li class="list-group-item conditions-list black">Daily Average: {{temp_avg temp}}&deg;
+                                    F
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </span>
+                <span><img src="assets/images/icons/icons/therms/E7BF9407.png" class="iMG-s ms-3">
+                    <li class="list-group-item conditions-list black">
+                        <div class="dropdown d-flex flex-wrap justify-content-start black">
+                            <button class="dropdown-toggle-split drop-btn conditions-list" id="dLabel2{{@index}}"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Feels
+                                Like: {{feels_like.day}}&deg; F
+                            </button>
+                            <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split drop-btn"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu black border border-info" aria-labelledby="dLabel2{{@index}}">
+                                <li class="list-group-item conditions-list">Morning: {{feels_like.morn}}&deg; F</li>
+                                <li class="list-group-item conditions-list">Daily High: {{feels_like.day}}&deg; F</li>
+                                <li class="list-group-item conditions-list">Evening: {{feels_like.eve}}&deg; F</li>
+                                <li class="list-group-item conditions-list">Night: {{feels_like.night}}&deg; F</li>
+                                <li class="list-group-item conditions-list">Daily Average: {{temp_avg feels_like}}&deg;
+                                    F
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </span>
+                <span><img src="assets/images/icons/icons/sun-rise-set/090-sunset-1.svg" class="iMG-s ms-3">
+                    <li class="list-group-item conditions-list black">Sunrise: {{ format_condition_time sunrise}}</li>
+                </span>
+                <span><img src="assets/images/icons/icons/sun-rise-set/sunSet.png" class="iMG-s ms-3">
+                    <li class="list-group-item conditions-list black">Sunset: {{ format_condition_time sunset}}</li>
+                </span>
+                <span><img src="assets/images/icons/icons/sun-rise-set/moonrise.png" class="iMG-s ms-3">
+                    <li class="list-group-item conditions-list black">Moonrise: {{ format_condition_time moonrise}}</li>
+                    <span><img src="assets/images/icons/icons/sun-rise-set/moonset.png" class="iMG-s ms-3">
+                        <li class="list-group-item conditions-list black">Moonset: {{ format_condition_time moonset}}
+                        </li>
+                    </span>
             </ul>
         </div>
 
         <div class="col-sm-5 col-md-5 col-lg-5 d-flex flex-wrap justify-content-center black">
             <ul class="list-group list-group-flush black d-flex flex-wrap">
-                 <li class="list-group-item conditions-list black">Pressure: {{pressure}} mb</li>
-                <li class="list-group-item conditions-list black">Dew Point: {{dew_point}}&deg;</li>
-                <li class="list-group-item conditions-list black">Humidity: {{humidity}} %<br>
-                    <div class="progress progress-bg">
-                        <div class="progress-bar progress-bar-striped {{progress_bar humidity}} " role="progressbar"
-                            style="width: {{percent humidity}}%" aria-valuenow="{{percent humidity}}" aria-valuemin="0"
-                            aria-valuemax="100"></div>
-                    </div>
-                </li>
-               
-                <li class="list-group-item conditions-list black">Cloud Coverage: {{clouds}}%
-                    <div class="progress progress-bg col-12 d-flex flex-wrap">
-                        <div class="progress-bar progress-bar-striped {{progress_bar clouds}} " role="progressbar"
-                            style="width: {{clouds}}%" aria-valuenow="{{clouds}}" aria-valuemin="0" aria-valuemax="100">
+                <span><img src="assets/images/icons/icons/meter.png" class="iMG ms-2">
+                    <li class="list-group-item conditions-list black ">Pressure<br> {{pressure}} mb</li>
+                </span>
+                <span><img src="assets/images/icons/icons/therms/024-thermometer-low.svg" class="iMG-s ms-2">
+                    <li class="list-group-item conditions-list black"> Dew
+                        Point:<br> {{dew_point}}&deg;</li>
+                </span>
+                <span><img src="assets/images/icons/icons/095-rain-drops-lg.svg" class="iMG ms-2">
+                    <li class="list-group-item conditions-list black">Humidity<br>{{humidity}}%<br>
+                        <div class="progress progress-bg">
+                            <div class="progress-bar progress-bar-striped {{progress_bar humidity}} " role="progressbar"
+                                style="width: {{humidity}}%" aria-valuenow="{{humidity}}" aria-valuemin="0"
+                                aria-valuemax="100"></div>
                         </div>
-                    </div>
-                </li>
-                <li class="list-group-item conditions-list black">Chance of Rain: {{percent pop}}%
-                    <div class="progress progress-bg">
-                        <div class="progress-bar progress-bar-striped {{progress_bar pop}} " role="progressbar"
-                            style="width: {{percent pop}}%" aria-valuenow="{{percent pop}}" aria-valuemin="0"
-                            aria-valuemax="100"></div>
-                    </div>
-                </li>
+                    </li>
+                </span>
+
+                <span><img src="assets/images/icons/icons/051-cloud-3.svg" class="iMG">
+                    <li class="list-group-item conditions-list black"> Cloud Coverage <br>{{clouds}}%<br>
+                        <div class="progress progress-bg">
+                            <div class="progress-bar progress-bar-striped {{progress_bar clouds}} " role="progressbar"
+                                style="width: {{clouds}}%" aria-valuenow="{{clouds}}" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </li>
+                </span>
+                <span><img src="assets/images/icons/icons/098-umbrella.svg" class="iMG-s">
+                    <li class="list-group-item conditions-list black">Chance of Rain: {{percent pop}}%
+                        <div class="progress progress-bg">
+                            <div class="progress-bar progress-bar-striped {{progress_bar pop}} " role="progressbar"
+                                style="width: {{percent pop}}%" aria-valuenow="{{percent pop}}" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </li>
+                </span>
+
             </ul>
         </div>
 
