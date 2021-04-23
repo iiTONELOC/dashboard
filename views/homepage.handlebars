@@ -63,7 +63,7 @@
                     <span><img src="assets/images/icons/icons/051-cloud-3.svg" class="iMG ms-2">
                         <li class="list-group-item conditions-list"> Cloud Coverage <br>{{cw.clouds}}%<br>
                             <div class="progress progress-bg">
-                                <div class="progress-bar progress-bar-striped {{progress_bar cw.clouds}} "
+                                <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-animated{{progress_bar cw.clouds}} "
                                     role="progressbar" style="width: {{cw.clouds}}%" aria-valuenow="{{cw.clouds}}"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
@@ -72,7 +72,7 @@
                     <span><img src="assets/images/icons/icons/095-rain-drops-lg.svg" class="iMG ms-2">
                         <li class="list-group-item conditions-list">Humidity<br>{{cw.humidity}}%<br>
                             <div class="progress progress-bg">
-                                <div class="progress-bar progress-bar-striped {{progress_bar cw.humidity}} "
+                                <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_bar cw.humidity}} "
                                     role="progressbar" style="width: {{cw.humidity}}%" aria-valuenow="{{cw.humidity}}"
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
@@ -81,7 +81,7 @@
                     <span><img src="assets/images/icons/icons/098-umbrella.svg" class="iMG-s ms-2">
                         <li class="list-group-item conditions-list">Chance of Rain<br>{{chance_rain hourly}}%<br>
                             <div class="progress progress-bg">
-                                <div class="progress-bar progress-bar-striped {{progress_rain hourly}} "
+                                <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_rain hourly}} "
                                     role="progressbar" style="width: {{format_percent hourly}}%"
                                     aria-valuenow="{{format_percent hourly}}" aria-valuemin="0" aria-valuemax="100">
                                 </div>
