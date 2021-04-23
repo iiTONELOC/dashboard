@@ -165,16 +165,19 @@ module.exports = {
             data = (data * 100)
         }
         let stat;
-        if (data < 20) {
+        if (data <= 20) {
+            stat = "blue"
+        }
+        if (data > 20 & data < 35) {
             stat = "green"
         }
-        if (data > 20 & data < 40) {
-            stat = "yellow"
-        }
-        if (data > 40 & data < 60) {
+        if (data > 35 & data < 55) {
             stat = "orange"
         }
-        if (data > 80 & data < 100) {
+        if (data > 55 & data < 79) {
+            stat = "red"
+        }
+        if (data > 80) {
             stat = "indigo"
         }
         return stat
@@ -203,16 +206,19 @@ module.exports = {
             rain = (rain * 100)
         }
         let stat;
-        if (rain < 20) {
+        if (rain <= 20) {
+            stat = "blue"
+        }
+        if (rain > 20 & rain < 35) {
             stat = "green"
         }
-        if (rain > 20 & rain < 40) {
-            stat = "yellow"
-        }
-        if (rain > 40 & rain < 60) {
+        if (rain > 35 & rain < 55) {
             stat = "orange"
         }
-        if (rain > 80 & rain < 100) {
+        if (rain > 55 & rain < 79) {
+            stat = "red"
+        }
+        if (rain > 80 ) {
             stat = "indigo"
         }
         return stat

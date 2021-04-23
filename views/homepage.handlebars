@@ -29,38 +29,63 @@
         <div class="row d-flex justify-content-center">
             <div class="col-sm-5 col-md-5 col-lg-5 ">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item conditions-list">Temperature: {{cw.temp}}&deg; F</li>
-                    <li class="list-group-item conditions-list">Feels Like: {{cw.feels_like}}&deg; F</li>
-                    <li class="list-group-item conditions-list">Dew Point: {{cw.dew_point}}&deg;</li>
-                    <li class="list-group-item conditions-list">Pressure: {{cw.pressure}} mb</li>
-                    <li class="list-group-item conditions-list">Visibility: {{format_mile cw.visibility}} mi</li>
+                    <span><img src="assets/images/icons/icons/therms/038-temperature.svg" class="iMG-s">
+                        <li class="list-group-item conditions-list">
+                            Temp<br>
+                            {{cw.temp}}&deg; F</li>
+                    </span>
+                    <span><img src="assets/images/icons/icons/therms/E7BF9407.png" class="iMG-s">
+                        <li class="list-group-item conditions-list"> Feels Like<br>
+                            {{cw.feels_like}}&deg; F</li>
+                    </span>
+                    <span><img src="assets/images/icons/icons/therms/024-thermometer-low.svg" class="iMG-s">
+                        <li class="list-group-item conditions-list"> Dew
+                            Point:<br> {{cw.dew_point}}&deg;</li>
+                    </span>
+                    <span><img src="assets/images/icons/icons/power.svg" class="iMG-s">
+                        <li class="list-group-item conditions-list">Pressure<br> {{cw.pressure}} mb</li>
+                    </span>
+
+
+
+
+                    <li class="list-group-item conditions-list">Visibility {{format_mile cw.visibility}} mi</li>
                 </ul>
             </div>
             <div class="col-sm-5 col-md-5 col-lg-5">
                 <ul class="list-group list-group-flush">
-                    
-                    <li class="list-group-item conditions-list">Cloud Coverage: {{cw.clouds}}%<br>
-                        <div class="progress progress-bg">
-                            <div class="progress-bar progress-bar-striped {{progress_bar cw.clouds}} "
-                                role="progressbar" style="width: {{cw.clouds}}%" aria-valuenow="{{cw.clouds}}"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </li>
-                    <li class="list-group-item conditions-list">Humidity: {{cw.humidity}}%<br>
-                        <div class="progress progress-bg">
-                            <div class="progress-bar progress-bar-striped {{progress_bar cw.humidity}} "
-                                role="progressbar" style="width: {{cw.humidity}}%" aria-valuenow="{{cw.humidity}}"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </li>
 
-                    <li class="list-group-item conditions-list">Chance of Rain: {{chance_rain hourly}}%<br>
-                        <div class="progress progress-bg">
-                            <div class="progress-bar progress-bar-striped {{progress_rain hourly}} " role="progressbar"
-                                style="width: {{format_percent hourly}}%" aria-valuenow="{{format_percent hourly}}"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </li>
+                    <span><img src="assets/images/icons/icons/051-cloud-3.svg" class="iMG">
+                        <li class="list-group-item conditions-list"> Cloud Coverage <br>{{cw.clouds}}%<br>
+                            <div class="progress progress-bg">
+                                <div class="progress-bar progress-bar-striped {{progress_bar cw.clouds}} "
+                                    role="progressbar" style="width: {{cw.clouds}}%" aria-valuenow="{{cw.clouds}}"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </li>
+                    </span>
+                    <span><img src="assets/images/icons/icons/095-rain-drops-lg.svg" class="iMG">
+                        <li class="list-group-item conditions-list">Humidity<br>{{cw.humidity}}%<br>
+                            <div class="progress progress-bg">
+                                <div class="progress-bar progress-bar-striped {{progress_bar cw.humidity}} "
+                                    role="progressbar" style="width: {{cw.humidity}}%" aria-valuenow="{{cw.humidity}}"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </li>
+                    </span>
+                    <span><img src="assets/images/icons/icons/056-3-raindrops.svg" class="iMG">
+                        <li class="list-group-item conditions-list">Chance of Rain<br>{{chance_rain hourly}}%<br>
+                            <div class="progress progress-bg">
+                                <div class="progress-bar progress-bar-striped {{progress_rain hourly}} "
+                                    role="progressbar" style="width: {{format_percent hourly}}%"
+                                    aria-valuenow="{{format_percent hourly}}" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
+                        </li>
+                    </span>
+
+
+
                 </ul>
             </div>
             <div class="col-12 d-flex flex-wrap justify content-center">
