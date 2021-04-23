@@ -97,7 +97,7 @@ html, body {
     background-position: right top;
     background-size: 350px;
     overflow: hidden;
-    max-height: 500px;
+    max-height: 700px;
 }
 
 .sun {
@@ -144,10 +144,10 @@ html, body {
 }
 
 .btn, .btn:active, .btn:hover {
-    background-color: black;
+    background-color: rgb(12, 11, 11);
     color: cornsilk;
     text-shadow: 1px 1px 1px rgb(19, 18, 18);
-    border: 1px solid rgba(187, 67, 247, 0.9);
+    border: 0px solid rgba(187, 67, 247, 0.9);
 }
 
 .ac-itm, .ac-itm:active {
@@ -191,6 +191,7 @@ html, body {
     height: 75px;
     object-fit: contain;
 }
+
 
 /* 5 day */
 
@@ -279,6 +280,6 @@ html, body {
 }
 .iMG-s{
     height: 65px;
-    object-fit: fill;
+    object-fit: cover;
     margin: auto;
 }

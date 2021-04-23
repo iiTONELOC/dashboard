@@ -3,23 +3,29 @@
     <div class="card weather-div col-12 col-md-12 col-lg-5 col-xl-4 col-xxl-3 align-items-start float-weather p-3"
         style="background-image: url({{render_icon cw.weather}});">
         <div class="card-body text-shadow d flex flex-wrap">
-            <h5 class="card-title text-center temp">{{cw.temp}}&deg; F</h5>
+            <h5 class="card-title text-center temp mt-5">{{cw.temp}}&deg; F</h5>
             <p class="card-text text-center "><span class="badge rounded-pill condition-badge">{{condition}}</span>
             </p>
-            <p class="card-text text-center wind align-self-center ms-4">{{cw.wind_speed}} mph</span></p>
+            <span><img src="assets/images/icons/icons/wind.png" class="iMG me-1">
+                <p class="card-text text-center wind align-self-center ">{{cw.wind_speed}} mph</p>
+            </span>
         </div>
 
         <div class="card-body col-12 d-flex flex-column justify-content-end">
-            <p class="card-text text-start"><span class="badge uvi-badge {{format_uv cw.uvi}}">UVI: {{cw.uvi}}</span>
-            </p>
-            <h5 class="col-12 card-title city text-shadow">{{city}}, {{state}}</h5>
-            <p class="col-12 card-text date">{{{format_day cw.dt}}}</p>
-            <span><img src="assets/images/icons/icons/sun-rise-set/090-sunset-1.svg" class="iMG ms-2">
-                <p class="col-6 card-text sun">Sunrise: {{ format_condition_time cw.sunrise}}</p>
-            </span>
-            <span><img src="assets/images/icons/icons/sun-rise-set/sunSet.png" class="iMG ms-2">
-                <p class="col-6 card-text sun">Sunset: {{ format_condition_time cw.sunset}}</p>
-            </span>
+            <span><img src="assets/images/icons/icons/uv-index.png" class="iMG me-1">
+                <p class="card-text text-start ms-1">Index<br><span
+                        class="badge uvi-badge {{format_uv cw.uvi}}">{{cw.uvi}}
+                    </span>
+
+                </p>
+                <h5 class="col-12 card-title city text-shadow">{{city}}, {{state}}</h5>
+                <p class="col-12 card-text date">{{{format_day cw.dt}}}</p>
+                <span><img src="assets/images/icons/icons/sun-rise-set/090-sunset-1.svg" class="iMG ms-2">
+                    <p class="col-6 card-text sun">Sunrise: {{ format_condition_time cw.sunrise}}</p>
+                </span>
+                <span><img src="assets/images/icons/icons/sun-rise-set/sunSet.png" class="iMG mt-1 ms-2">
+                    <p class="col-6 card-text sun">Sunset: {{ format_condition_time cw.sunset}}</p>
+                </span>
 
 
         </div>
@@ -44,11 +50,11 @@
                         <li class="list-group-item conditions-list"> Feels Like<br>
                             {{cw.feels_like}}&deg; F</li>
                     </span>
-                    <span><img src="assets/images/icons/icons/therms/024-thermometer-low.svg" class="iMG-s ms-2">
+                    <span><img src="assets/images/icons/icons/therms/024-thermometer-low.svg" class="iMG-s ms-3">
                         <li class="list-group-item conditions-list"> Dew
                             Point:<br> {{cw.dew_point}}&deg;</li>
                     </span>
-                    <span><img src="assets/images/icons/icons/meter.png" class="iMG ms-2">
+                    <span><img src="assets/images/icons/icons/meter.png" class="iMG ms-3">
                         <li class="list-group-item conditions-list">Pressure<br> {{cw.pressure}} mb</li>
                     </span>
 
@@ -56,11 +62,11 @@
             </div>
             <div class="col-sm-5 col-md-5 col-lg-5">
                 <ul class="list-group list-group-flush">
-                    <span><img src="assets/images/icons/icons/viz.png" class="iMG ms-2">
+                    <span><img src="assets/images/icons/icons/viz.png" class="iMG ms-3">
                         <li class="list-group-item conditions-list">Visibility <br>{{format_mile cw.visibility}} mi</li>
                     </span>
 
-                    <span><img src="assets/images/icons/icons/051-cloud-3.svg" class="iMG ms-2">
+                    <span><img src="assets/images/icons/icons/051-cloud-3.svg" class="iMG ms-3">
                         <li class="list-group-item conditions-list"> Cloud Coverage <br>{{cw.clouds}}%<br>
                             <div class="progress progress-bg">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-animated{{progress_bar cw.clouds}} "
@@ -69,7 +75,7 @@
                             </div>
                         </li>
                     </span>
-                    <span><img src="assets/images/icons/icons/095-rain-drops-lg.svg" class="iMG ms-2">
+                    <span><img src="assets/images/icons/icons/095-rain-drops-lg.svg" class="iMG ms-3">
                         <li class="list-group-item conditions-list">Humidity<br>{{cw.humidity}}%<br>
                             <div class="progress progress-bg">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_bar cw.humidity}} "
@@ -78,7 +84,7 @@
                             </div>
                         </li>
                     </span>
-                    <span><img src="assets/images/icons/icons/098-umbrella.svg" class="iMG-s ms-2">
+                    <span><img src="assets/images/icons/icons/098-umbrella.svg" class="iMG-s ms-3">
                         <li class="list-group-item conditions-list">Chance of Rain<br>{{chance_rain hourly}}%<br>
                             <div class="progress progress-bg">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_rain hourly}} "
@@ -107,7 +113,8 @@
                                 <h2 class="accordion-header d-flex justify-content-end" id="headingOne">
                                     <div class="btn" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        View more
+                                        <span><img src="assets/images/icons/icons/three-small-dots.png" class="iMG me-1">
+                                        </span>
                                     </div>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
