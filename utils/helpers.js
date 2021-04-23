@@ -182,6 +182,46 @@ module.exports = {
         }
         return stat
     },
+    progress_temp: data => {
+        if (data < 1) {
+            data = (data * 100)
+        }
+        let stat;
+        if (data <= 19) {
+            stat = "indigo"
+        }
+        if (data >= 20 & data <= 29) {
+            stat = "bg-primary"
+        }
+        if (data >= 30 & data <= 39) {
+            stat = "blue"
+        }
+        if (data >= 40 & data <= 49) {
+            stat = "bg-success"
+        }
+        if (data >= 50 & data <= 59) {
+            stat = "green"
+        }
+        if (data >= 60 & data <= 69) {
+            stat = "yellow"
+        }
+        if (data >= 60 & data <= 69) {
+            stat = "orange"
+        }
+        if (data >= 70 & data <= 79) {
+            stat = "red"
+        }
+        if (data >= 80 & data <= 89) {
+            stat = "red1"
+        }
+        if (data >= 90 & data <= 99) {
+            stat = "red2"
+        }
+        if (data >= 100) {
+            stat = "red3"
+        }
+        return stat
+    },
 
     format_percent: data => {
         let current = data.map(e => { return chance = e.pop });

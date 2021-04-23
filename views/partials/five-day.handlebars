@@ -22,7 +22,13 @@
                         <div class="dropdown d-flex flex-wrap justify-content-start ">
                             <button class="dropdown-toggle-split drop-btn conditions-list" id="dLabel{{@index}}"
                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Temperature: {{temp.day}}&deg; F
+                                Temperature: {{temp.day}}&deg; F<br>
+                                <div class="progress progress-bg">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_temp temp.day}} "
+                                        role="progressbar" style="width: {{percent temp.day}}%"
+                                        aria-valuenow="{{percent temp.day}}" aria-valuemin="0" aria-valuemax="120">
+                                    </div>
+                                </div>
                             </button>
                             <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split drop-btn "
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -48,7 +54,13 @@
                             <button class="dropdown-toggle-split drop-btn conditions-list" id="dLabel2{{@index}}"
                                 type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Feels
-                                Like: {{feels_like.day}}&deg; F
+                                Like: {{feels_like.day}}&deg; F<br>
+                                <div class="progress progress-bg">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_temp feels_like.day}} "
+                                        role="progressbar" style="width: {{percent feels_like.day}}%"
+                                        aria-valuenow="{{percent feels_like.day}}" aria-valuemin="0" aria-valuemax="120">
+                                    </div>
+                                </div>
                             </button>
                             <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split drop-btn"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -93,9 +105,9 @@
                 <span><img src="assets/images/icons/icons/095-rain-drops-lg.svg" class="iMG ms-3">
                     <li class="list-group-item conditions-list black">Humidity<br>{{humidity}}%<br>
                         <div class="progress progress-bg">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_bar humidity}} " role="progressbar"
-                                style="width: {{humidity}}%" aria-valuenow="{{humidity}}" aria-valuemin="0"
-                                aria-valuemax="100"></div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_bar humidity}} "
+                                role="progressbar" style="width: {{humidity}}%" aria-valuenow="{{humidity}}"
+                                aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </li>
                 </span>
@@ -103,18 +115,18 @@
                 <span><img src="assets/images/icons/icons/051-cloud-3.svg" class="iMG ms-2">
                     <li class="list-group-item conditions-list black"> Cloud Coverage <br>{{clouds}}%<br>
                         <div class="progress progress-bg">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_bar clouds}} " role="progressbar"
-                                style="width: {{clouds}}%" aria-valuenow="{{clouds}}" aria-valuemin="0"
-                                aria-valuemax="100"></div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_bar clouds}} "
+                                role="progressbar" style="width: {{clouds}}%" aria-valuenow="{{clouds}}"
+                                aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </li>
                 </span>
                 <span><img src="assets/images/icons/icons/098-umbrella.svg" class="iMG-s ms-2">
                     <li class="list-group-item conditions-list black">Chance of Rain: {{percent pop}}%
                         <div class="progress progress-bg">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_bar pop}} " role="progressbar"
-                                style="width: {{percent pop}}%" aria-valuenow="{{percent pop}}" aria-valuemin="0"
-                                aria-valuemax="100"></div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_bar pop}} "
+                                role="progressbar" style="width: {{percent pop}}%" aria-valuenow="{{percent pop}}"
+                                aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </li>
                 </span>

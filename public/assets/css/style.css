@@ -30,7 +30,10 @@ html, body {
 /* END NAV */
 
 /* Weather */
-
+.alert-icon{
+    max-height: 150px;
+    object-fit: contain;
+}
 .city {
     font-size: 35px;
 }
@@ -258,7 +261,15 @@ html, body {
 .red {
     background-color: rgba(255, 0, 0,.6);
 }
-
+.red1 {
+    background-color: rgba(194, 0, 0, 0.6);
+}
+.red2 {
+    background-color: rgba(131, 0, 0, 0.6);
+}
+.red3 {
+    background-color: rgba(78, 1, 1, 0.6);
+}
 .indigo {
     background-color: rgba(141, 0, 146,.7);
 }
@@ -280,6 +291,11 @@ html, body {
 }
 .iMG-s{
     height: 65px;
+    object-fit: cover;
+    margin: auto;
+}
+.iMG-ss{
+    height: 15px;
     object-fit: cover;
     margin: auto;
 }
