@@ -4,6 +4,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 require('dotenv').config();
 const requestIp = require('request-ip');
+const News = require('./news');
 
 
 
@@ -41,7 +42,7 @@ app.use(routes);
 
 // try middleware for ip
 app.use(requestIp.mw())
-app.use(function(req, res) {
+app.use(function (req, res) {
     const ip = req.clientIp;
     res.end(ip);
 });
@@ -51,3 +52,24 @@ app.use(function(req, res) {
 //     app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
 // });
 app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
+
+function update() {
+    let timer = new Date()
+    setInterval(function () {
+        let counter = 0 ;
+        let date = new Date();
+        if ((date) - (timer) > 3600000) {
+            counter ++
+            console.log("It has been one hour! Updating News")
+            console.log("News has been updated: " + counter + "times")
+            timer = (new Date())
+            News.updateHeadlines();
+        } else {
+            console.log("Timer is running, but it has not been one hour it has been " +(date-timer).getMinutes()+":"+(date-timer).getSeconds())
+        }
+    }, 900000)
+
+}
+
+update()
+

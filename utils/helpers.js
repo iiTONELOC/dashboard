@@ -264,6 +264,7 @@ module.exports = {
         return stat
     },
     render_one_image: data => {
+
         if (data === undefined) {
             return
         }
@@ -272,8 +273,8 @@ module.exports = {
             const element = data[i];
             d.push(element)
         }
-        let x = d[0].image
-        if (x === "None") {
+        let x = d[0].urlToImage
+        if (x === "None" || data == null) {
             return "https://webstockreview.net/images/newspaper-clipart-10.png"
         } else {
             // console.log(`IMG HELPER
@@ -311,7 +312,8 @@ module.exports = {
 
     },
     render_news_img: data => {
-        if (data === "None") {
+        
+        if (data === "None" || data == null) {
             return "https://webstockreview.net/images/newspaper-clipart-10.png"
         } else {
             // console.log(`IMG HELPER
@@ -320,7 +322,7 @@ module.exports = {
             return data
         }
     },
-    slide: data =>{
+    slide: data => {
         return data + 1
     }
 
