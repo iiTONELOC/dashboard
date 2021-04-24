@@ -65,7 +65,7 @@ function update() {
             timer = (new Date())
             News.updateHeadlines();
         } else {
-            console.log("Timer is running, but it has not been one hour it has been " +(date-timer).getMinutes()+":"+(date-timer).getSeconds())
+            console.log("Timer is running, but it has not been one hour it has been " +(date-timer)+":"+(date-timer))
         }
     }, 300000)
 
