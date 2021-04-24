@@ -1,0 +1,51 @@
+<div class="row-col col-12 d-flex flex-wrap newsContainerDiv">
+    <div class="row-col col-12 d-flex flex-wrap justify-content-start">
+        <h1 class="newsHead">Current Headlines</h1>
+    </div>
+    <div class="row-col col-12 d-flex flex-wrap justify-content-center">
+        <!-- CARDS -->
+
+        {{#each news.articles}}
+        <div class="col-5 d-flex justify-content-center cardBorder m-1">
+            <div class="card col-12 newsCard p-2">
+                <div class="imgBackground col-12 m1 p-3">
+                    <img class="card-img-top border border-3 border-info" src="{{{render_news_img urlToImage}}}"
+                        alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title newsTitle">{{title}}</h5>
+                    <blockquote class="blockquote">
+                        <p class="card-text newsDesc">{{description}}</p>
+                    </blockquote>
+
+                    <div class="col-12 d-flex flex-wrap justify-content-end ">
+                        <div class="accordion " id="next-six-hours{{@index}}">
+                            <div class="accordion-item ac-itm d-flex ">
+                                <h2 class="accordion-header d-flex justify-content-end" id="headingOne">
+                                    <div class="btn border border-dark p-3" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTWO" aria-expanded="true" aria-controls="collapseTWO">
+                                        <div>
+                                            <p>READ MORE</p>
+                                        </div>
+                                        <span><a href="{{url}}" target="_blank" rel="noreopener"><img class="readBtn"src="assets/images/icons/icons/news.png"
+                                                    class="iMG me-1 "></a>
+                                        </span>
+                                    </div>
+                                </h2>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+
+
+
+
+
+</div>

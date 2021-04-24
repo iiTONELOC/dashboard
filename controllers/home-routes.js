@@ -11,7 +11,6 @@ const requestIp = require('request-ip');
 router.get('/', (req, res) => {
 
     // Get Current Weather off IP-
-    console.log(req.clientIp)
     async function oneCall() {
         let data = await News.getNewsJSON().then(async data => {
             // console.log(data)
@@ -71,7 +70,7 @@ router.get('/', (req, res) => {
         const lat = data.lat
         const lon = data.lon;
         const news = data.news
-        console.log(news)
+    
         const condition = ({ ...cw.weather }[0].description).toUpperCase()
         // storage for hourly, we dont need all 48 hours right now
         // map the array, don't alter original data

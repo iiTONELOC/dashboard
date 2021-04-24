@@ -16,11 +16,11 @@ module.exports = {
         let current = data.map(e => { return chance = e.pop });
         rain = current[0]
         rainChance = (rain * 100)
-        return rainChance
+        return parseFloat(rainChance.toFixed(2))
     },
     chance_rain1: data => {
         rainChance = (data * 100)
-        return rainChance
+        return parseFloat(rainChance.toFixed(2))
     },
 
     format_hourly_time: date => {
@@ -226,17 +226,17 @@ module.exports = {
     format_percent: data => {
         let current = data.map(e => { return chance = e.pop });
         if (current[0] < 1) {
-            return current[0] * 100
+            return parseFloat((current[0] * 100).toFixed(2))
         }
-        return current[0]
+        return current[0].toFixed(2)
     },
 
     percent: data => {
         let current = data
         if (current < 1) {
-            return current * 100
+            return parseFloat((current * 100).toFixed(2))
         }
-        return current
+        return parseFloat(current.toFixed(2))
     },
 
     progress_rain: data => {
@@ -298,6 +298,7 @@ module.exports = {
 
     },
     render_one_desc: data => {
+        
         if (data === undefined) {
             return
         }
@@ -312,7 +313,6 @@ module.exports = {
 
     },
     render_news_img: data => {
-        
         if (data === "None" || data == null) {
             return "https://webstockreview.net/images/newspaper-clipart-10.png"
         } else {
