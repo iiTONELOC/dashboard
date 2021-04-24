@@ -151,7 +151,7 @@ module.exports = {
         if (data >= 6 & data <= 7) {
             uv = "orange"
         }
-        if (data >=8 & data <= 10) {
+        if (data >= 8 & data <= 10) {
             uv = "red"
         }
         if (data >= 11) {
@@ -258,10 +258,70 @@ module.exports = {
         if (rain >= 56 & rain <= 79) {
             stat = "red"
         }
-        if (rain >= 80 ) {
+        if (rain >= 80) {
             stat = "indigo"
         }
         return stat
     },
+    render_one_image: data => {
+        if (data === undefined) {
+            return
+        }
+        d = []
+        for (let i = 0; i < 1; i++) {
+            const element = data[i];
+            d.push(element)
+        }
+        let x = d[0].image
+        if (x === "None") {
+            return "https://webstockreview.net/images/newspaper-clipart-10.png"
+        } else {
+            // console.log(`IMG HELPER
+            // ++++++++++++++++++++++
+            // ${data}`)
+            return x
+        }
+    },
+    render_one_title: data => {
+        if (data === undefined) {
+            return
+        }
+        d = []
+        for (let i = 0; i < 1; i++) {
+            const element = data[i];
+            d.push(element)
+        }
+        let x = d[0].title
+
+        return x
+
+    },
+    render_one_desc: data => {
+        if (data === undefined) {
+            return
+        }
+        d = []
+        for (let i = 0; i < 1; i++) {
+            const element = data[i];
+            d.push(element)
+        }
+        let x = d[0].description
+
+        return x
+
+    },
+    render_news_img: data => {
+        if (data === "None") {
+            return "https://webstockreview.net/images/newspaper-clipart-10.png"
+        } else {
+            // console.log(`IMG HELPER
+            // ++++++++++++++++++++++
+            // ${data}`)
+            return data
+        }
+    },
+    slide: data =>{
+        return data + 1
+    }
 
 }

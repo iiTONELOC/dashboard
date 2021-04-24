@@ -45,7 +45,8 @@
                     </span>
 
                 </p>
-                <h5 id="lat"class="col-12 card-title city text-shadow" data-lat="{{lat}}"data-lon="{{lon}}">{{city}}, {{state}}</h5>
+                <h5 id="lat" class="col-12 card-title city text-shadow" data-lat="{{lat}}" data-lon="{{lon}}">{{city}},
+                    {{state}}</h5>
                 <p class="col-12 card-text date">{{{format_day cw.dt}}}</p>
                 <span><img src="assets/images/icons/icons/sun-rise-set/090-sunset-1.svg" class="iMG ms-2">
                     <p id="sunR" class="col-6 card-text sun">Sunrise: {{ format_condition_time cw.sunrise}}</p>
@@ -53,8 +54,76 @@
                 <span><img src="assets/images/icons/icons/sun-rise-set/sunSet.png" class="iMG mt-1 ms-2">
                     <p id="sunS" class="col-6 card-text sun">Sunset: {{ format_condition_time cw.sunset}}</p>
                 </span>
+            </span>
+            {{!-- EVENTUALLY MAKE PARTIAL --}}
+            {{!-- NEWS CONTAINER THIS STAYS --}}
+            <div class="col-12 d-flex flex-wrap justify-content-center">
+
+
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel"
+                    data-bs-interval="25000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{@index}}"
+                            class="active" aria-current="true" aria-label="Slide {{slide @index}}"></button>
+                        {{#each news}}
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{@index}}"
+                            aria-label="Slide {{slide @index}}"></button>
+                        {{/each}}
+                    </div>
+                    <div class="carousel-inner">
+
+                        {{!-- PART OUT ITEMS --}}
+                        <div class="carousel-item active">
+                            <div class="col-12 d-flex flex-wrap justify-content-center p-4">
+                                <img src="{{render_one_image news}}" class="d-block w-100 news-img" alt="news image">
+                                <div class="col-12 d-flex flex-wrap justify-content-center mt-5">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5 class="news-title p-2 mb-3">{{render_one_title news}}</h5>
+                                        <p class="news-bg">{{render_one_desc news}}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        {{#each news}}
+                        <div class="carousel-item">
+                            <div class="col-12 d-flex flex-wrap justify-content-center p-4">
+                                <img src="{{{render_news_img image}}}" class="d-block w-100 news-img"
+                                    alt="news-background">
+                                <div class="col-12 d-flex flex-wrap justify-content-center mt-5">
+                                    <div class="carousel-caption d-none d-md-block ">
+                                        <h5 class="news-title p-2 mb-3">{{{title}}}</h5>
+                                        <p class="news-bg">{{{description}}}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        {{/each}}
+
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+
+            </div>
         </div>
-        
+
+
+
 
     </div>
     <!-- Daily Conditions Here -->
