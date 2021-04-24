@@ -11,7 +11,7 @@ const requestIp = require('request-ip');
 router.get('/', (req, res) => {
 
     // Get Current Weather off IP-
-
+    console.log(req.clientIp)
     async function oneCall() {
         let data = await News.getNewsJSON().then(async data => {
             // console.log(data)
@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
         }).then(async nD => {
             let news = nD
             const geoip = require('geoip-lite');
-            let client = requestIp.getClientIp(req)
+            let client = req.clientIp
             let ip = geoip.lookup(client)
             let lat;
             let lon;
@@ -60,7 +60,7 @@ router.get('/', (req, res) => {
     }
 
     oneCall().then(data => {
-    
+
         /* SEPARATE AND PACKAGE CURRENT, MINUTELY, HOURLY, DAILY FORECAST */
         const cw = data.data.current
         const mw = data.data.minutely
@@ -71,7 +71,7 @@ router.get('/', (req, res) => {
         const lat = data.lat
         const lon = data.lon;
         const news = data.news
-        // console.log(news)
+        console.log(news)
         const condition = ({ ...cw.weather }[0].description).toUpperCase()
         // storage for hourly, we dont need all 48 hours right now
         // map the array, don't alter original data
@@ -85,7 +85,7 @@ router.get('/', (req, res) => {
             hourly.push(element)
         }
         // Splice hourly array into 6 hour groups
-       
+
         hourlyExtended = hourly.splice(6)
         res.render('homepage', {
             cw, mw, dw, city, state, condition, hourly, hourlyExtended, lat, lon, news

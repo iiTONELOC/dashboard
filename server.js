@@ -37,15 +37,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(session(sess));
 
+// try middleware for ip
+
 // turn on routes
+app.use(requestIp.mw())
+
 app.use(routes);
 
-// try middleware for ip
-app.use(requestIp.mw())
-app.use(function (req, res) {
-    const ip = req.clientIp;
-    res.end(ip);
-});
+// app.use(function (req, res) {
+//     const ip = req.clientIp;
+//     res.end(ip);
+// });
+
+
+
 
 // turn on connection to db and server
 // sequelize.sync({ force: false }).then(() => {
