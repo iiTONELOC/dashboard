@@ -54,6 +54,7 @@ app.use(function (req, res) {
 app.listen(PORT, () => console.log(`Now listening on ${PORT}`));
 
 function update() {
+    News.updateHeadlines();
     let timer = new Date()
     setInterval(function () {
         let counter = 0 ;
@@ -65,9 +66,9 @@ function update() {
             timer = (new Date())
             News.updateHeadlines();
         } else {
-            console.log("Timer is running, but it has not been one hour it has been " +(date-timer)+":"+(date-timer))
+            console.log("+++++++++++++++++++++\nTimer is running, but it has not been one hour it has been " +((date-timer/1000)/60)+" Mins since last check")
         }
-    }, 300000)
+    }, 150000)
 
 }
 
