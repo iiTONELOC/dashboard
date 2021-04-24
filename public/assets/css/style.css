@@ -30,10 +30,12 @@ html, body {
 /* END NAV */
 
 /* Weather */
-.alert-icon{
+
+.alert-icon {
     max-height: 150px;
     object-fit: contain;
 }
+
 .city {
     font-size: 35px;
 }
@@ -100,7 +102,7 @@ html, body {
     background-position: right top;
     background-size: 350px;
     overflow: hidden;
-    max-height:950px;
+    max-height: 875px;
 }
 
 .sun {
@@ -190,11 +192,11 @@ html, body {
 .over {
     overflow: hidden;
 }
+
 .cur-icon {
     height: 75px;
     object-fit: contain;
 }
-
 
 /* 5 day */
 
@@ -259,54 +261,65 @@ html, body {
 }
 
 .red {
-    background-color: rgba(255, 0, 0,.6);
+    background-color: rgba(255, 0, 0, .6);
 }
+
 .red1 {
     background-color: rgba(194, 0, 0, 0.6);
 }
+
 .red2 {
     background-color: rgba(131, 0, 0, 0.6);
 }
+
 .red3 {
     background-color: rgba(78, 1, 1, 0.6);
 }
+
 .indigo {
-    background-color: rgba(141, 0, 146,.7);
+    background-color: rgba(141, 0, 146, .7);
 }
 
-.black{
+.black {
     background-color: black;
 }
-.blue{
-    background-color:rgba(21, 211, 223,.7);
+
+.blue {
+    background-color: rgba(21, 211, 223, .7);
 }
-.progress-bg{
+
+.progress-bg {
     background-color: rgb(12, 11, 11);
 }
 
-.iMG{
+.iMG {
     height: 50px;
     object-fit: fill;
     margin: auto;
 }
-.iMG-s{
+
+.iMG-s {
     height: 65px;
     object-fit: cover;
     margin: auto;
 }
-.iMG-ss{
+
+.iMG-ss {
     height: 15px;
     object-fit: cover;
     margin: auto;
 }
+
 /* NEWS */
-.news-bg{
+
+.news-bg {
     background-color: rgba(0, 0, 0, 0.9);
     font-size: 10px;
     max-height: 70px;
     overflow: hidden;
 }
-.news-title{
+
+.news-title {
     font-size: 15px;
     font-weight: 500;
     min-height: 50px;
@@ -317,6 +330,7 @@ html, body {
     border-radius: 5px;
     overflow: hidden;
 }
-.news-img{
+
+.news-img {
     object-fit: cover;
 }
