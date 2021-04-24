@@ -315,7 +315,7 @@ html, body {
 .news-bg {
     background-color: rgba(0, 0, 0, 0.9);
     font-size: 10px;
-    max-height: 70px;
+    max-height: 30px;
     overflow: hidden;
 }
 
@@ -323,7 +323,7 @@ html, body {
     font-size: 15px;
     font-weight: 500;
     min-height: 50px;
-    max-height: 100px;
+    max-height: 75px;
     text-shadow: 1px 1px 1px black;
     color: snow;
     background-color: rgba(0, 0, 0, 0.8);
