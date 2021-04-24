@@ -66,7 +66,7 @@ function update() {
             timer = (new Date())
             News.updateHeadlines();
         } else {
-            console.log("+++++++++++++++++++++\nTimer is running, but it has not been one hour it has been " +((date-timer/1000)/60)+" Mins since last check")
+            console.log("+++++++++++++++++++++\nTimer is running, but it has not been one hour it has been " +(((date-timer)/1000)/60)+" Mins since last check")
         }
     }, 150000)
 
