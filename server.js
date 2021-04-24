@@ -67,7 +67,7 @@ function update() {
         } else {
             console.log("Timer is running, but it has not been one hour it has been " +(date-timer).getMinutes()+":"+(date-timer).getSeconds())
         }
-    }, 900000)
+    }, 300000)
 
 }
 
