@@ -117,11 +117,11 @@ class Weather {
 
 
     // RETURNS WEATHER DATA BY ZIP SEARCH
-    static dailyZip(zip) {
+    static async dailyZip(zip) {
         require('dotenv').config();
         let zipCode = zip;
         let url = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},us&appid=${process.env.WEATHER}`
-        fetch(url, {
+       let response = await fetch(url, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -140,21 +140,27 @@ class Weather {
             }).catch(e => {
                 console.log(e)
             })
+            return response
     }
 
 
     // RETURNS WEATHER INFO BY CITY NAME
-    static dailyCity(data) {
+    static async dailyCity(data) {
+       
+      
         require('dotenv').config();
-
-        if (!country) {
+       
+        let city = data.split(",")[0]
+        let country = data.split(",")[2]
+        let state = data.split(",")[1]
+        if (country === "undefined" || !country) {
             country = 'us';
         }
-        if (!state) {
+        if (!state || state === "undefined") {
             state = '';
         }
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${state},${country}&appid=${process.env.WEATHER}`
-        fetch(url, {
+       let response = await fetch(url, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -162,16 +168,18 @@ class Weather {
         })
             .then(res => res.json())
             .then(async cityData => {
-                console.log(cityData)
+                // console.log(cityData)
                 let lon = cityData.coord.lon;
                 let lat = cityData.coord.lat;
-                // Weather.oneCall(lat, lon).then(res => {
-                //     // console.log(res)
-                //     return res
-                // })
+               let response = Weather.oneCall(lat, lon).then(res => {
+                    return res
+                })
+                return response
             }).catch(e => {
                 console.log(e)
             })
+
+            return response
     }
 
 }

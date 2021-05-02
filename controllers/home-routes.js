@@ -46,6 +46,24 @@ router.get('/', async (req, res) => {
         cw, mw, dw, city, state, condition, hourly, hourlyExtended, alerts
     })
 })
+// weather search by city,state or city,country
+router.get('/:query', async (req, res) => {
+
+    const search = req.params.query
+    let city = search.split(",")[0].trim()
+    let state = search.split(",")[1]
+    console.log(city,state)
+    const weather = await Weather.dailyCity(search).then(data=>{
+        return data
+    })
+    const {
+        cw, mw, dw, condition, hourly, hourlyExtended,alerts
+    } = weather
+    return res.render(`homepage`, {
+        cw, mw, dw, city, state, condition, hourly, hourlyExtended, alerts
+    })
+    // ==============================================
+})
 
 
 
