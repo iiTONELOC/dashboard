@@ -62,9 +62,7 @@ class Weather {
                 })
                     .then(res => res.json())
                     .then((data) => {
-                        // REMOVE LOG
-                        // console.log(data)
-                        return data 
+                        return data
                     })
             })
             return response
@@ -82,16 +80,42 @@ class Weather {
             })
                 .then(res => res.json())
                 .then((data) => {
-                    // REMOVE LOG
-                    // console.log(data)
-                    return data
+                    const cw = data.current
+                    const mw = data.minutely
+                    const hw = data.hourly
+                    const dw = data.daily
+                    const condition = ({ ...cw.weather }[0].description).toUpperCase()
+                    // storage for hourly, we dont need all 48 hours right now
+                    // map the array, don't alter original data
+                    let data1 = hw.map(e => { return e });
+                    // empty holders
+                    let hourly = [];
+                    let hourlyExtended = [];
+                    // grab the first 12 hours and add it to hourly array
+                    for (let index = 0; index < data1.length - 36; index++) {
+                        const element = data1[index];
+                        hourly.push(element)
+                    }
+                    // Splice hourly array into 6 hour groups
+                    hourlyExtended = hourly.splice(6)
+
+                    return {
+                        cw: cw,
+                        mw: mw,
+                        hw: hw,
+                        dw: dw,
+                        condition: condition,
+                        hourly: hourly,
+                        hourlyExtended: hourlyExtended
+                    }
                 }).catch(e => {
                     console.log(e)
                 })
             return response
         }
-
     }
+
+
     // RETURNS WEATHER DATA BY ZIP SEARCH
     static dailyZip(zip) {
         require('dotenv').config();
@@ -111,20 +135,22 @@ class Weather {
                 Weather.oneCall(lat, lon).then(res => {
                     // REMOVE LOG
                     // console.log(res)
-                    return(res)
+                    return (res)
                 })
             }).catch(e => {
                 console.log(e)
             })
     }
+
+
     // RETURNS WEATHER INFO BY CITY NAME
     static dailyCity(data) {
         require('dotenv').config();
-        
+
         if (!country) {
             country = 'us';
         }
-        if(!state){
+        if (!state) {
             state = '';
         }
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${state},${country}&appid=${process.env.WEATHER}`
@@ -147,6 +173,7 @@ class Weather {
                 console.log(e)
             })
     }
+
 }
 
 
