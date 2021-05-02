@@ -1,0 +1,22 @@
+<div class="col-sm-12 d-flex flex-wrap justify-content-center mt-5">
+    {{#if alerts}}
+    {{>alerts}}
+    {{/if}}
+</div>
+
+<div class="col-sm-12 d-flex flex-wrap justify-content-center mt-5">
+    <!--WEATHER SECTION -->
+    {{>city-weather}}
+    
+    <!-- Daily Conditions Here -->
+    {{>daily-conditions}}
+</div>
+
+<!-- 5 DAY -->
+<div class="row ms-1 d-flex flex-wrap justify-content-center">
+   {{>five-layout}}
+</div>
+
+<div class="col-12">
+    <!-- EXTRA FOR NOW -->
+</div>

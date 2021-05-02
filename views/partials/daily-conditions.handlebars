@@ -1,0 +1,120 @@
+ <div
+        class="card weather-div col-12 col-md-12 col-lg-6 col-xl-6 col-xxl-5 d-flex flex-wrap justify-content-center p-3">
+        <div class="col-12 card-body align-self-start">
+            <h5 class="card-title city text-shadow">Current Conditions</h5>
+            <p class="card-text date">{{format_condition_time cw.dt}}</p>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-sm-5 col-md-5 col-lg-5 ">
+                <ul class="list-group list-group-flush">
+                    <span><img src="assets/images/icons/icons/therms/038-temperature.svg" class="iMG-s ms-2">
+                        <li class="list-group-item conditions-list">
+                            Temp<br>
+                            {{cw.temp}}&deg; F<br>
+                            <div class="progress progress-bg">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_temp cw.temp}} "
+                                    role="progressbar" style="width: {{percent cw.temp}}%"
+                                    aria-valuenow="{{percent cw.temp}}" aria-valuemin="0" aria-valuemax="120">
+                                </div>
+                            </div>
+                        </li>
+                    </span>
+                    <span><img src="assets/images/icons/icons/therms/E7BF9407.png" class="iMG-s">
+                        <li class="list-group-item conditions-list"> Feels Like<br>
+                            {{cw.feels_like}}&deg; F<br>
+                            <div class="progress progress-bg">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_temp cw.feels_like}} "
+                                    role="progressbar" style="width: {{percent cw.feels_like}}%"
+                                    aria-valuenow="{{percent cw.feels_like}}" aria-valuemin="0" aria-valuemax="120">
+                                </div>
+                            </div>
+                        </li>
+                    </span>
+                    <span><img src="assets/images/icons/icons/therms/024-thermometer-low.svg" class="iMG-s ms-3">
+                        <li class="list-group-item conditions-list"> Dew
+                            Point:<br> {{cw.dew_point}}&deg;</li>
+                    </span>
+                    <span><img src="assets/images/icons/icons/meter.png" class="iMG ms-3">
+                        <li class="list-group-item conditions-list">Pressure<br> {{cw.pressure}} mb</li>
+                    </span>
+
+                </ul>
+            </div>
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <ul class="list-group list-group-flush">
+                    <span><img src="assets/images/icons/icons/viz.png" class="iMG ms-3">
+                        <li class="list-group-item conditions-list">Visibility <br>{{format_mile cw.visibility}} mi</li>
+                    </span>
+
+                    <span><img src="assets/images/icons/icons/051-cloud-3.svg" class="iMG ms-3">
+                        <li class="list-group-item conditions-list"> Cloud Coverage <br>{{cw.clouds}}%<br>
+                            <div class="progress progress-bg">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar-animated {{progress_bar cw.clouds}} "
+                                    role="progressbar" style="width: {{cw.clouds}}%" aria-valuenow="{{cw.clouds}}"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </li>
+                    </span>
+                    <span><img src="assets/images/icons/icons/095-rain-drops-lg.svg" class="iMG ms-3">
+                        <li class="list-group-item conditions-list">Humidity<br>{{cw.humidity}}%<br>
+                            <div class="progress progress-bg">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_bar cw.humidity}} "
+                                    role="progressbar" style="width: {{cw.humidity}}%" aria-valuenow="{{cw.humidity}}"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </li>
+                    </span>
+                    <span><img src="assets/images/icons/icons/098-umbrella.svg" class="iMG-s ms-3">
+                        <li class="list-group-item conditions-list">Chance of Rain<br>{{chance_rain hourly}}%<br>
+                            <div class="progress progress-bg">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated {{progress_rain hourly}} "
+                                    role="progressbar" style="width: {{format_percent hourly}}%"
+                                    aria-valuenow="{{format_percent hourly}}" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
+                        </li>
+                    </span>
+
+
+
+                </ul>
+            </div>
+            <div class="col-12 d-flex flex-wrap justify content-center">
+                <div class="col-12 d-flex flex-wrap justify-content-center card-body align-self-start">
+                    <h5 class="card-title hourly text-shadow mb-4">Hourly Forecast</h5>
+
+                    <div class="col-sm-12 col-md-12 d-flex flex-wrap justify-content-center ">
+                        {{#each hourly as |hourly|}}
+                        {{> hourly-info hourly}}
+                        {{/each}}
+                        <!-- ACCORDION FOR EXTRA HOURS -->
+                        <div class="accordion mt-3" id="next-six-hours">
+                            <div class="accordion-item ac-itm d-flex">
+                                <h2 class="accordion-header d-flex justify-content-end" id="headingOne">
+                                    <div class="btn" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <span><img src="assets/images/icons/icons/three-small-dots.png"
+                                                class="iMG me-1">
+                                        </span>
+                                    </div>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                                    data-bs-parent="#next-six-hours">
+                                    <div class="accordion-body col-12 d-flex flex-wrap align-self-center weather-div">
+                                        {{#each hourlyExtended as |extended|}}
+                                        {{> extended-info extended}}
+                                        {{/each}}
+
+                                        <div class="col-12 mt-4">
+                                            <p class="text-end closer" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne">Close</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
