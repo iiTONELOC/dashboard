@@ -118,8 +118,9 @@ class Weather {
             })
     }
     // RETURNS WEATHER INFO BY CITY NAME
-    static dailyCity(city, state, country) {
+    static dailyCity(data) {
         require('dotenv').config();
+        
         if (!country) {
             country = 'us';
         }
@@ -135,12 +136,13 @@ class Weather {
         })
             .then(res => res.json())
             .then(async cityData => {
+                console.log(cityData)
                 let lon = cityData.coord.lon;
                 let lat = cityData.coord.lat;
-                Weather.oneCall(lat, lon).then(res => {
-                    // console.log(res)
-                    return res
-                })
+                // Weather.oneCall(lat, lon).then(res => {
+                //     // console.log(res)
+                //     return res
+                // })
             }).catch(e => {
                 console.log(e)
             })
