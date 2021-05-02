@@ -114,154 +114,153 @@ module.exports = {
     },
 
     format_day: date => {
-        let newDate = `${new Date((date * 1000) - 14400000).getMonth() + 1}/${new Date((date * 1000) - 14400000).getDate()}/${new Date(
-            (date * 1000) - 14400000
-        ).getFullYear()}`;
+        let newDate = `${new Date((date * 1000) - 14400000)
+            .getMonth() + 1}/${new Date((date * 1000) - 14400000)
+                .getDate()}/${new Date((date * 1000) - 14400000)
+                    .getFullYear()}`;
 
         dayWk = (new Date(newDate).toLocaleString('en-us', { weekday: 'long' }));
         month = (new Date(newDate).toLocaleString('en-us', { month: 'short' }));
-        d = new Date((date * 1000) - 14400000).getDate()
+        d = new Date((date * 1000) - 14400000).getDate();
 
-        let day
-        switch (d) {
-            case 1 | 21 | 31:
-                day = `${d}<sup>st</sup>`;
-                break;
-            case 2 | 22:
-                day = `${d}<sup>nd</sup>`;
-                break;
-            case 3 | 23:
-                day = `${d}<sup>rd</sup>`;
-                break;
-            default: day = `${d}<sup>th</sup>`
-                break;
+        let day;
+
+        if (d === 1 || d === 21 || d === 31) {
+            day = `${d}<sup>st</sup>`;
+        } else if (d === 2 || d == 22) {
+            day = `${d}<sup>nd</sup>`;
+        } else if (d === 3 || d === 23) {
+            day = `${d}<sup>rd</sup>`;
+        } else {
+            day = `${d}<sup>th</sup>`
         }
-        let formatted_date = `${dayWk},  ${month} ${day}`
-        return formatted_date
+
+        let formatted_date = `${dayWk},  ${month} ${day}`;
+        return formatted_date;
     },
 
     format_uv: data => {
         let uv;
         if (data <= 2) {
-            uv = "green"
+            uv = "green";
         }
         if (data >= 3 & data <= 5) {
-            uv = "yellow"
+            uv = "yellow";
         }
         if (data >= 6 & data <= 7) {
-            uv = "orange"
+            uv = "orange";
         }
         if (data >= 8 & data <= 10) {
-            uv = "red"
+            uv = "red";
         }
         if (data >= 11) {
-            uv = "indigo"
+            uv = "indigo";
         }
-        return uv
+        return uv;
     },
 
     progress_bar: data => {
         if (data < 1) {
-            data = (data * 100)
+            data = (data * 100);
         }
         let stat;
         if (data <= 19.9999999999) {
-            stat = "blue"
+            stat = "blue";
         }
         if (data >= 20 & data <= 35.99999999999999) {
-            stat = "green"
+            stat = "green";
         }
         if (data >= 36 & data <= 55.999999999999999) {
-            stat = "orange"
+            stat = "orange";
         }
         if (data >= 56 & data <= 79.9999999999999999) {
-            stat = "red"
+            stat = "red";
         }
         if (data >= 80) {
-            stat = "indigo"
+            stat = "indigo";
         }
-        return stat
+        return stat;
     },
     progress_temp: data => {
         if (data < 1) {
-            data = (data * 100)
+            data = (data * 100);
         }
         let stat;
         if (data <= 19.999999999999) {
-            stat = "indigo"
+            stat = "indigo";
         }
         if (data >= 19.1 & data <= 29.999999999) {
-            stat = "bg-primary"
+            stat = "bg-primary";
         }
         if (data >= 30 & data <= 39.99999999999) {
-            stat = "blue"
+            stat = "blue";
         }
         if (data >= 40 & data <= 49.9999999999999) {
-            stat = "bg-success"
+            stat = "bg-success";
         }
         if (data >= 50 & data <= 59.999999999999) {
-            stat = "green"
+            stat = "green";
         }
         if (data >= 60 & data <= 69.999999999999) {
-            stat = "yellow"
+            stat = "yellow";
         }
         if (data >= 60 & data <= 69.999999999999) {
-            stat = "orange"
+            stat = "orange";
         }
         if (data >= 70 & data <= 79.999999999999) {
-            stat = "red"
+            stat = "red";
         }
         if (data >= 80 & data <= 89.999999999999) {
-            stat = "red1"
+            stat = "red1";
         }
         if (data >= 90 & data <= 99.999999999999) {
-            stat = "red2"
+            stat = "red2";
         }
         if (data >= 100) {
-            stat = "red3"
+            stat = "red3";
         }
-        return stat
+        return stat;
     },
 
     format_percent: data => {
         let current = data.map(e => { return chance = e.pop });
         if (current[0] < 1) {
-            return parseFloat((current[0] * 100).toFixed(2))
+            return parseFloat((current[0] * 100).toFixed(2));
         }
-        return current[0].toFixed(2)
+        return current[0].toFixed(2);
     },
 
     percent: data => {
-        let current = data
+        let current = data;
         if (current < 1) {
-            return parseFloat((current * 100).toFixed(2))
+            return parseFloat((current * 100).toFixed(2));
         }
-        return parseFloat(current.toFixed(2))
+        return parseFloat(current.toFixed(2));
     },
 
     progress_rain: data => {
         let current = data.map(e => { return chance = e.pop });
-        let rain = current[0]
+        let rain = current[0];
         if (rain < 1) {
-            rain = (rain * 100)
+            rain = (rain * 100);
         }
         let stat;
         if (rain <= 20) {
-            stat = "blue"
+            stat = "blue";
         }
         if (rain >= 21 & rain <= 35) {
-            stat = "green"
+            stat = "green";
         }
         if (rain >= 36 & rain <= 55) {
-            stat = "orange"
+            stat = "orange";
         }
         if (rain >= 56 & rain <= 79) {
-            stat = "red"
+            stat = "red";
         }
         if (rain >= 80) {
-            stat = "indigo"
+            stat = "indigo";
         }
-        return stat
+        return stat;
     },
     render_one_image: data => {
 
@@ -271,16 +270,13 @@ module.exports = {
         d = []
         for (let i = 0; i < 1; i++) {
             const element = data[i];
-            d.push(element)
+            d.push(element);
         }
         let x = d[0].urlToImage
         if (x === "None" || data == null) {
-            return "https://webstockreview.net/images/newspaper-clipart-10.png"
+            return "https://webstockreview.net/images/newspaper-clipart-10.png";
         } else {
-            // console.log(`IMG HELPER
-            // ++++++++++++++++++++++
-            // ${data}`)
-            return x
+            return x;
         }
     },
     render_one_title: data => {
@@ -290,40 +286,37 @@ module.exports = {
         d = []
         for (let i = 0; i < 1; i++) {
             const element = data[i];
-            d.push(element)
+            d.push(element);
         }
-        let x = d[0].title
+        let x = d[0].title;
 
-        return x
+        return x;
 
     },
     render_one_desc: data => {
-        
+
         if (data === undefined) {
             return
         }
-        d = []
+        d = [];
         for (let i = 0; i < 1; i++) {
             const element = data[i];
-            d.push(element)
+            d.push(element);
         }
-        let x = d[0].description
+        let x = d[0].description;
 
-        return x
+        return x;
 
     },
     render_news_img: data => {
         if (data === "None" || data == null) {
-            return "https://webstockreview.net/images/newspaper-clipart-10.png"
+            return "https://webstockreview.net/images/newspaper-clipart-10.png";
         } else {
-            // console.log(`IMG HELPER
-            // ++++++++++++++++++++++
-            // ${data}`)
             return data
         }
     },
     slide: data => {
-        return data + 1
+        return data + 1;
     }
 
 }
