@@ -1,6 +1,6 @@
 <div class="col-sm-12 d-flex flex-wrap justify-content-center mt-5">
-
-    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast hide bg-dark" data-bs-autohide="false">
+    {{#if alerts}}
+    <div role="alert" aria-live="assertive" aria-atomic="true" class="toast show bg-dark" data-bs-autohide="false">
         <div class="col-12 d-flex flex-wrap justify-content-center">
             <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="toast"></button>
             <div class="card mb-3 bg-dark" style="max-width: 540px;">
@@ -12,15 +12,18 @@
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title text-danger">WEATHER ALERT!!!</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 class="card-title text-danger">From: {{alerts.sender_name}}</h5>
+                            <h5 class="card-title text-danger">ALERT: {{alerts.event}}</h5>
+                            <p class="card-text">{{alerts.description}}</p>
+                            <p class="card-text"><small class="text-muted">Starts: {{{format_date alerts.start}}} {{{format_condition_time alerts.start}}}</small></p>
+                            <p class="card-text"><small class="text-muted">Ends: {{{format_date alerts.start}}} {{{format_condition_time alerts.end}}}</small></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {{/if}}
 </div>
 <div class="col-sm-12 d-flex flex-wrap justify-content-center mt-5">
 

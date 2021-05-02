@@ -32,11 +32,11 @@ router.get('/', async (req, res) => {
     })
 
     const {
-        cw, mw, dw, condition, hourly, hourlyExtended,
+        cw, mw, dw, condition, hourly, hourlyExtended,alerts
     } = data
 
     res.render('homepage', {
-        cw, mw, dw, city, state, condition, hourly, hourlyExtended,
+        cw, mw, dw, city, state, condition, hourly, hourlyExtended, alerts
     })
 
 

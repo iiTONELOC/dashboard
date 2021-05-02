@@ -67,11 +67,10 @@ function update() {
         if ((date) - (timer) > 3600000) {
             counter ++
             console.log("It has been one hour! Updating News")
-            console.log("News has been updated: " + counter + "times")
             timer = (new Date())
             News.updateHeadlines();
         } else {
-            console.log("+++++++++++++++++++++\nTimer is running, but it has not been one hour it has been " +(((date-timer)/1000)/60)+" Mins since last check")
+
         }
     }, 150000)
 
