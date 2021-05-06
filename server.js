@@ -44,10 +44,10 @@ app.use(requestIp.mw())
 
 app.use(routes);
 
-// app.use(function (req, res) {
-//     const ip = req.clientIp;
-//     res.end(ip);
-// });
+app.use(function (req, res) {
+    const ip = req.clientIp;
+    res.end(ip);
+});
 
 
 
