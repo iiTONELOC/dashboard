@@ -15,9 +15,8 @@ router.get('/', async (req, res) => {
     let ip = geoip.lookup(client)
     let lat;
     let lon;
-
     // IF LOCAL
-    if (client === '::1') {
+    if (client === '::1' || client === '::ffff:127.0.0.1') {
         client = await Location.user()
         lat = client.lat;
         lon = client.lon;
@@ -52,7 +51,7 @@ router.get('/:query', async (req, res) => {
     const search = req.params.query
     let city = search.split(",")[0].trim()
     let state = search.split(",")[1]
-    console.log(city,state)
+    // console.log(city,state)
     const weather = await Weather.dailyCity(search).then(data=>{
         return data
     })

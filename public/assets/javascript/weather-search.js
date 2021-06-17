@@ -3,10 +3,10 @@ const button = document.getElementById("weather-search-btn")
 const params = document.getElementById("search-field")
 
 async function submitWeatherSearch(event) {
-
+    event.preventDefault();
     const query = params.value
-
-    if (parseFloat(query)===NaN) {
+    console.log(query)
+    if (parseFloat(query)!=NaN) {
         document.location.replace(`/${query}`)
     }
     
