@@ -15,12 +15,8 @@ router.get('/', async (req, res) => {
     let ip = geoip.lookup(client)
     let lat;
     let lon;
-    let city;
-    let state;
-
-console.log(client)
     // IF LOCAL
-    if (client === '::1' || client ==='::ffff:127.0.0.1') {
+    if (client === '::1' || client === '::ffff:127.0.0.1') {
         client = await Location.user()
         lat = client.lat;
         lon = client.lon;
@@ -50,23 +46,23 @@ console.log(client)
     })
 })
 // weather search by city,state or city,country
-// router.get('/:query', async (req, res) => {
+router.get('/:query', async (req, res) => {
 
-//     const search = req.params.query
-//     let city = search.split(",")[0].trim()
-//     let state = search.split(",")[1]
-//     console.log(city,state)
-//     const weather = await Weather.dailyCity(search).then(data=>{
-//         return data
-//     })
-//     const {
-//         cw, mw, dw, condition, hourly, hourlyExtended,alerts
-//     } = weather
-//     return res.render(`homepage`, {
-//         cw, mw, dw, city, state, condition, hourly, hourlyExtended, alerts
-//     })
-//     // ==============================================
-// })
+    const search = req.params.query
+    let city = search.split(",")[0].trim()
+    let state = search.split(",")[1]
+    // console.log(city,state)
+    const weather = await Weather.dailyCity(search).then(data=>{
+        return data
+    })
+    const {
+        cw, mw, dw, condition, hourly, hourlyExtended,alerts
+    } = weather
+    return res.render(`homepage`, {
+        cw, mw, dw, city, state, condition, hourly, hourlyExtended, alerts
+    })
+    // ==============================================
+})
 
 
 
