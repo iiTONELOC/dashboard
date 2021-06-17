@@ -7,7 +7,7 @@ async function submitWeatherSearch(event) {
     const query = params.value
     console.log(query)
     if (parseFloat(query)!=NaN) {
-        document.location.replace(`/${query}`)
+        document.location.replace(`/search/${query}`)
     }
     
 }

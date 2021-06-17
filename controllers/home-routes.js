@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
     })
 })
 // weather search by city,state or city,country
-router.get('/:query', async (req, res) => {
+router.get('/search/:query', async (req, res) => {
 
     const search = req.params.query
     let city = search.split(",")[0].trim()

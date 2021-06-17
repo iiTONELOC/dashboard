@@ -4,13 +4,13 @@
             <h5 class="card-title text-center temp mt-5">{{cw.temp}}&deg; F</h5>
             <p class="card-text text-center "><span class="badge rounded-pill condition-badge">{{condition}}</span>
             </p>
-            <span><img src="assets/images/icons/icons/wind.png" class="iMG me-1">
+            <span><img src="/assets/images/icons/icons/wind.png" class="iMG me-1">
                 <p class="card-text text-center wind align-self-center ">{{cw.wind_speed}} mph</p>
             </span>
         </div>
 
         <div class="card-body col-12 d-flex flex-column justify-content-end">
-            <span><img src="assets/images/icons/icons/uv-index.png" class="iMG me-1">
+            <span><img src="/assets/images/icons/icons/uv-index.png" class="iMG me-1">
                 <p class="card-text text-start ms-1">Index<br><span
                         class="badge uvi-badge {{format_uv cw.uvi}}">{{cw.uvi}}
                     </span>
@@ -19,10 +19,10 @@
                 <h5 id="lat" class="col-12 card-title city text-shadow" data-lat="{{lat}}" data-lon="{{lon}}">{{city}},
                     {{state}}</h5>
                 <p class="col-12 card-text date">{{{format_day cw.dt}}}</p>
-                <span><img src="assets/images/icons/icons/sun-rise-set/090-sunset-1.svg" class="iMG ms-2">
+                <span><img src="/assets/images/icons/icons/sun-rise-set/090-sunset-1.svg" class="iMG ms-2">
                     <p id="sunR" class="col-6 card-text sun">Sunrise: {{ format_condition_time cw.sunrise}}</p>
                 </span>
-                <span><img src="assets/images/icons/icons/sun-rise-set/sunSet.png" class="iMG mt-1 ms-2">
+                <span><img src="/assets/images/icons/icons/sun-rise-set/sunSet.png" class="iMG mt-1 ms-2">
                     <p id="sunS" class="col-6 card-text sun">Sunset: {{ format_condition_time cw.sunset}}</p>
                 </span>
             </span>
