@@ -8,7 +8,7 @@
 
 # Description
 
-My dash brings you ad-free weather and news!
+My Dash is a web app that provides ad-free weather and news for free! IF you are like me you like to start your morning with a cup of coffe, the weather, and some news. Live weather is returned automatically, location details calculated by the ip address. My Dash uses the openweather API for up to date, and accurate weather information. News stories are updated ever hour. Pages are dynamically rendered using express-handlebars.
 
 # Table of Contents
 
